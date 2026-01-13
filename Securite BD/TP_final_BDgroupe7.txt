@@ -1,0 +1,255 @@
+// ====================================================================
+// CONFIGURATION DES RÈGLES D'ACCÈS BASÉES SUR LES RÔLES (RBAC) - MONGODB
+// Ce script doit être exécuté en tant qu'ADMINISTRATEUR (ex: christian_superviseur1)
+// ====================================================================
+
+//AUTHENTIFICATION
+mongosh -u Admin -p --authenticationDatabase admin
+
+
+// --- 0. ÉTAPE PRÉPARATOIRE : CREATION DE LA BASE DE DONNÉES ET DONNÉES DE BASE ---
+use TP_Securite
+
+show users
+db.getUsers()
+
+// Réinitialisation des collections pour un nouveau départ 
+db.produits.drop(); 
+db.factures.drop();
+
+//creer si cela n'existe pas
+db.createCollection("produits");
+db.createCollection("factures");
+
+db.factures.find()
+db.produits.find()
+
+show collections
+
+// Insertion des données initiales
+db.factures.insertOne({ numero: "F-1001", total: 1100, client: "Alpha Corp" })
+db.factures.insertOne({ numero: "F-1002", total: 1100, client: "Alpha Corp" })
+db.produits.insertOne({ nom: "Téléviseur 4K", prix: 850, categorie: "Électronique" })
+// Confirmer l'insertion
+db.factures.find()
+db.produits.find()
+
+// --------------------------------------------------------------------
+// ÉTAPE 1 : DÉMONSTRATION DES RÔLES PAR DÉFAUT (Intégrés)
+// --------------------------------------------------------------------
+// Exécuter cette commande pour afficher les rôles intégrés disponibles : db.runCommand({ rolesInfo: 1, showBuiltinRoles: true })
+// Privilèges (Permissions) Granulaires  db.getRoles({ showPrivileges: true });
+db.getRoles({ showBuiltinRoles:true });	    // Liste Complète des Rôles (Intégrés et Personnalisés)
+db.getUsers();					// récupérer et afficher des informations sur les utilisateurs
+
+// --------------------------------------------------------------------
+// ÉTAPE 2 : CRÉATION DES QUATRE TYPES D'UTILISATEURS
+// --------------------------------------------------------------------
+
+// 2.1. CHRISTIAN (Superviseur 1 - Droits d'écriture et d'administration complète)
+
+db.createUser(
+   {
+     user: "christian_superviseur1",
+     pwd: "passwordSuper1",
+     roles: [ { role: "readWrite", db: "TP_Securite" },
+              { role: "userAdmin", db: "TP_Securite" } 
+            ] 
+   }
+)
+
+db.createUser(
+   {
+     user: "christian_superviseur1",
+     pwd: "passwordSuper1",
+     roles: [ 
+        { role: "readWriteAnyDatabase", db: "admin" }, 
+        { role: "userAdminAnyDatabase", db: "admin" }  
+     ] 
+   }
+)
+
+db.updateUser(
+   "christian_superviseur1",
+   {
+     roles: [ 
+       { role: "readWriteAnyDatabase", db: "admin" }, 
+       { role: "userAdminAnyDatabase", db: "admin" } 
+     ] 
+   }
+)
+
+
+
+// 2.2. JOYSE (Superviseur 2 - Lecture + Droit de Déléguer le Rôle 'read')
+db.createUser(
+   {
+     user: "joyse_superviseur2",
+     pwd: "passwordJoyse",
+     roles: [ 
+        { role: "read", db: "TP_Securite" },             
+        { role: "userAdmin", db: "TP_Securite" }        // Permet de déléguer des rôles
+    ]
+   }
+)
+
+// 2.3. GRACIA (Gestionnaire - Droits en lecture/écriture standards)
+db.createUser(
+   {
+     user: "gracia_gestionnaire",
+     pwd: "passwordGest",
+     roles: [ { role: "readWrite", db: "TP_Securite" } ] 
+   }
+)
+
+// 2.4. BERNARD (Invité - AUCUN RÔLE DE LECTURE INITIALEMENT)
+db.createUser(
+   {
+     user: "bernard_invite",
+     pwd: "passwordGuest",
+     roles: [] 
+   }
+)
+
+//pour visualiser les utilisateurs creer
+show users
+db.getUsers()
+
+// --------------------------------------------------------------------
+// ÉTAPE 3 : VÉRIFICATION INITIALE DES PRIVILÈGES (Tests manuels requis)
+// --------------------------------------------------------------------
+// EXEMPLE DE TEST MANUEL : (dans une nouvelle session mongosh pour BERNARD)
+// use TP_Securite; db.auth("bernard_invite", "passwordGuest"); db.produits.find({}) // -> DOIT ÉCHOUER (Not Authorized)
+
+db.auth("gracia_gestionnaire", "passwordGest");
+db.getUser("gracia_gestionnaire").roles
+db.factures.insertOne({ numero: "F-1005", total: 4500, client: "Scharia" })
+db.produits.insertOne({ nom: "Routeur 4K", prix: 850, categorie: "ELECTRO-MENAGER" })
+
+
+
+// --------------------------------------------------------------------
+// ÉTAPE 4 : DÉMONSTRATION DE LA DÉLÉGATION DE DROIT PAR JOYSE (Superviseur 2)
+// --------------------------------------------------------------------
+
+// Vérifions les rôles de Bernard avant la délégation (DOIT ÊTRE VIDE)
+db.getUser("bernard_invite").roles 
+
+// === À EXÉCUTER EN TANT QUE JOYSE (Superviseur 2) ===
+// db.auth("joyse_superviseur2", "passwordJoyse") doit être exécuté dans sa session avant la commande suivante.
+// Joyse utilise son rôle 'userAdmin' pour accorder 'read' à Bernard.
+// db.grantRolesToUser("bernard_invite", [ { role: "read", db: "TP_Securite" } ])
+
+// Ré-afficher les rôles de Bernard (DOIT maintenant afficher le rôle 'read')
+db.getUser("bernard_invite").roles 
+
+
+// --------------------------------------------------------------------
+// ÉTAPE 5 : RÉVOCATION DU POUVOIR DE DÉLÉGATION (userAdmin) DE JOYSE
+// --------------------------------------------------------------------
+// ATTENTION: Exécuter en tant que CHRISTIAN (Superviseur 1)
+// Christian retire le rôle 'userAdmin' qui confère le pouvoir de déléguer.
+db.auth("christian_superviseur1", "passwordSuper1")
+
+db.getUser("joyse_superviseur2").roles
+
+db.revokeRolesFromUser(
+   "joyse_superviseur2",
+   [ { role: "userAdmin", db: "TP_Securite" } ]
+)
+
+db.grantRolesToUser("bernard_invite", [ { role: "read", db: "TP_Securite" } ])
+
+db.getUser("joyse_superviseur2").roles
+
+// --------------------------------------------------------------------
+// ÉTAPE 6 : TEST DE LA RÉVOCATION DU POUVOIR DE DÉLÉGATION (DOIT ÉCHOUER)
+// --------------------------------------------------------------------
+// === À EXÉCUTER EN TANT QUE JOYSE (Superviseur 2) pour simuler l'échec ===
+// db.auth("joyse_superviseur2", "passwordJoyse")
+// db.grantRolesToUser("bernard_invite", [ { role: "readWrite", db: "TP_Securite" } ]) // -> DOIT ÉCHOUER (Not Authorized)
+
+
+// --------------------------------------------------------------------
+// ÉTAPE 7 : CRÉATION DU RÔLE PERSONNALISÉ GRANULAIRE (GRACIA)
+// --------------------------------------------------------------------
+
+// Christian retire d'abord le rôle général 'readWrite' de Gracia pour isoler le test de granularité
+
+db.auth("christian_superviseur1", "passwordSuper1")
+
+db.revokeRolesFromUser("gracia_gestionnaire", [{ role: "readWrite", db: "TP_Securite" }]);
+
+// Création du rôle personnalisé (ADMIN ou Christian)
+db.createRole(
+   {
+     role: "writeProduits",
+     privileges: [
+       {
+         resource: { db: "TP_Securite", collection: "produits" },
+         actions: [ "find", "insert", "update", "remove" ] // Accès lecture/écriture
+       }
+     ],
+     roles: [] 
+   }
+)
+
+db.getRoles({ showBuiltinRoles:true });
+
+// Attribution du rôle personnalisé à Gracia
+db.grantRolesToUser(
+   "gracia_gestionnaire",
+   [ { role: "writeProduits", db: "TP_Securite" } ]
+)
+
+db.getUser("gracia_gestionnaire").roles
+
+// EXEMPLE DE TEST MANUEL : (dans une nouvelle session mongosh pour GRACIA)
+// use TP_Securite; 
+db.auth("gracia_gestionnaire", "passwordGest");
+// db.produits.insertOne({ nom: "Test Granulaire", prix: 10 }) // -> DOIT RÉUSSIR
+// db.factures.find({}) // -> DOIT ÉCHOUER (Not Authorized)
+show users  // le gestionnaire Gracia n'a pas le droit de visualiser l'ensemble des role qui existe.
+
+
+
+
+
+
+
+
+
+
+//Pour tout recommencer
+db.auth("christian_superviseur1", "passwordSuper1");
+// Se placer dans la base de données principale (si ce n'est pas déjà fait)
+use TP_Securite
+
+// Suppression du rôle personnalisé
+db.dropRole("writeProduits");
+print("Rôle 'writeProduits' supprimé.")
+
+// Suppression des utilisateurs (à exécuter dans la BD où ils ont été créés, ici TP_Securite)
+db.dropUser("christian_superviseur1");
+db.dropUser("joyse_superviseur2");
+db.dropUser("gracia_gestionnaire");
+db.dropUser("bernard_invite");
+print("Tous les utilisateurs de démonstration ont été supprimés.")
+
+// Optionnel : Retourner à la BD admin pour vérifier
+use admin
+db.getUsers() // Vous devriez ne voir que les utilisateurs admin ou les utilisateurs globaux
+
+// Retourner à la base de données de travail
+use TP_Securite
+
+// Réinitialisation des collections pour un nouveau départ 
+db.produits.drop(); 
+db.factures.drop();
+
+// Supprimer la base de données au complet
+db.dropDatabase();
+print("Base de données 'TP_Securite' complètement supprimée.")
+
+// Vérification de l'absence de la base de données
+show dbs

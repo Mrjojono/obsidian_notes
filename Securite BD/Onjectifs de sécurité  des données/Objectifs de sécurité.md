@@ -1,0 +1,4 @@
+
+trois principaux objectifs:  
+
+- confidentialité
