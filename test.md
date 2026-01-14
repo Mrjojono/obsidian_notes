@@ -1,4 +1,0 @@
-
-
-
-meteo : [[exposer iot meteo]] 
