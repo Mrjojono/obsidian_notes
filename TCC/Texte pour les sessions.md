@@ -28,5 +28,9 @@ Où ? *en ligne via google meet*
 Lien inscription : https://tcc.hyver.org/e/tech-talk-3-on-prend-la-parole-et-vous-aussi
 
 
-je vois que beaucoup de connaissent pas render, et bien render permet de **déployer automatiquement** vos  application que  à chaque `git push` sur la branche principale.  
-Aucune commande manuelle, aucun stress. Tu pushes, Render s’occupe du reste.
+je vois que beaucoup de connaissent pas render, et bien render permet de **déployer automatiquement** vos  application , c'est un hébergeur freemium donc vous pouvez déployer un certains nombre d'app , il s'intègre facilement avec github et facilite vos automatisation  à chaque `git push` sur la branche principale Aucune commande manuelle, aucun stress. Tu pushes, Render s’occupe du reste. a condition qu'il y ai pas d'erreur 😅
+
+
+
+vous pouvez heberger plein de truc sur  Render, il  supporte **Node.js, Python, Java, PHP, Docker, Static Sites** et bien plus.  sur render vous pouvez 
+Tu peux héberger un backend, un frontend et même des services Docker sur la même plateforme.
