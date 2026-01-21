@@ -18,3 +18,11 @@ Vous y découvrirez :
 Nous vous donnerons également la possibilité de **poser toutes vos questions**, de partager vos **apports**, ainsi que vos **suggestions d’amélioration**.
 
 
+
+Nous vous invitons à nous rejoindre pour notre **troisième Tech Talk**, un moment d’échange où nous prendrons la parole, mais où **vous aussi aurez l’opportunité de vous exprimer**.
+
+Venez **poser toutes vos questions**, de partager vos **apports**, ainsi que vos **suggestions d’amélioration**.
+
+Quand ? *Vendredi à 21H*
+Où ? *en ligne via google meet*
+Lien : https://meet.google.com/vyd-smob-bzx
