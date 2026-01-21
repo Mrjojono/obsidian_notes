@@ -110,25 +110,6 @@
     - Découpage des tâches
         
     - Choix des technologies
-        
-
----
-
-## 8. Création de groupes pour les membres
-
-- Mise en place de groupes dédiés aux membres du club de programmation
-    
-- Objectifs :
-    
-    - Échange et entraide
-        
-    - Suivi des projets
-        
-    - Partage de ressources et d’opportunités
-        
-
----
-
 ## 9. Organisation administrative
 
 - David est chargé de :
