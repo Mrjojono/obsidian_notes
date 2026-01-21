@@ -141,14 +141,3 @@
         
 
 ---
-
-Si tu veux, je peux aussi :
-
-- adapter ce document pour un **rapport officiel**
-    
-- le transformer en **présentation**
-    
-- ou le condenser en **note de réunion**
-    
-
-Dis-moi l’usage prévu.
