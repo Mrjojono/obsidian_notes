@@ -41,5 +41,16 @@ Elles ne sont jamais exposées dans le code ni sur GitHub. et plein d'autre truc
 
 
 Vous  pouvez voir les logs de votre application en direct.  
-Très utile pour déboguer une erreur sans accéder au serveur. Bon la j'ai un peut abuser de mon plan gratuit  du coup  il y  a pas tout qui s'affiche Tu peux voir les **logs de ton application en direct**.  
+Très utile pour déboguer une erreur sans accéder au serveur. Bon la j'ai un peut abuser de mon plan gratuit  du coup  il y  a pas tout qui s'affiche Tu peux voir les logs de ton application en direct
 Très utile pour déboguer une erreur sans accéder au serveur.😂😅
+
+
+Render propose un **plan gratuit** idéal pour tester, apprendre et déployer des projets personnels.
+Vous avez **750 heures d’exécution**, ce qui permet de faire tourner **un service en continu pendant presque tout le mois**. Si plusieurs services gratuits sont actifs, ils partagent ce quota d’heures.
+Côté trafic, Render inclut 100 Go de bande passante sortante par mois, largement suffisants pour des applications de démonstration, des portfolios ou des APIs en phase de test.
+
+
+
+À noter que les services gratuits sont **mis en veille après environ 15 minutes d’inactivité**, ce qui peut entraîner un léger temps de redémarrage lors de la prochaine requête mais j'ai une solution pour ca 😉😊😁 😶‍🌫️je ne peut  pas vous devoiler le secret ici mais si vous réagissez  beaucoup je vous le confierait .
+
+
