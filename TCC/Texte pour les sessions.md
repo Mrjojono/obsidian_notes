@@ -28,7 +28,7 @@ Où ? *en ligne via google meet*
 Lien inscription : https://tcc.hyver.org/e/tech-talk-3-on-prend-la-parole-et-vous-aussi
 
 
-je vois que beaucoup de connaissent pas render, et bien render permet de **déployer automatiquement** vos  application , c'est un hébergeur freemium donc vous pouvez déployer un certains nombre d'app , il s'intègre facilement avec github et facilite vos automatisation  à chaque `git push` sur la branche principale Aucune commande manuelle, aucun stress. Tu pushes, Render s’occupe du reste. a condition qu'il y ai pas d'erreur 😅
+Et bien render est un hebergeur qui permet de **déployer automatiquement** vos  application , il est freemium donc vous pouvez déployer un certains nombre d'app , il s'intègre facilement avec github et facilite vos automatisation  à chaque `git push` sur la branche principale par exemple Aucune commande manuelle, aucun stress. Tu pushes, Render s’occupe du reste. a condition qu'il y ai pas d'erreur 😅
 
 
 
@@ -52,5 +52,7 @@ Côté trafic, Render inclut 100 Go de bande passante sortante par mois, largeme
 
 
 À noter que les services gratuits sont **mis en veille après environ 15 minutes d’inactivité**, ce qui peut entraîner un léger temps de redémarrage lors de la prochaine requête mais j'ai une solution pour ca 😉😊😁 😶‍🌫️je ne peut  pas vous devoiler le secret ici mais si vous réagissez  beaucoup je vous le confierait .
+
+
 
 
