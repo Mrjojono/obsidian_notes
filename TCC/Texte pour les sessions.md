@@ -25,4 +25,4 @@ Venez **poser toutes vos questions**, de partager vos **apports**, ainsi que vos
 
 Quand ? *Vendredi à 21H*
 Où ? *en ligne via google meet*
-Lien : https://meet.google.com/vyd-smob-bzx
+Lien inscription : https://tcc.hyver.org/e/tech-talk-3-on-prend-la-parole-et-vous-aussi
