@@ -34,3 +34,12 @@ je vois que beaucoup de connaissent pas render, et bien render permet de **dépl
 
 vous pouvez heberger plein de truc sur  Render, il  supporte **Node.js, Python, Java, PHP, Docker, Static Sites, des services web et meme une base de données  Postgres** et bien plus. 
 Tu peux héberger un backend ( je  conseille de deployer beaucoup plus du backend dessus), un frontend et même des services Docker sur la même plateforme.
+
+
+Render permet de définir des variables d’environnement sécurisées (API keys, DB password…).  
+Elles ne sont jamais exposées dans le code ni sur GitHub. et plein d'autre truc  
+
+
+Vous  pouvez voir les logs de votre application en direct.  
+Très utile pour déboguer une erreur sans accéder au serveur. Bon la j'ai un peut abuser de mon plan gratuit  du coup  il y  a pas tout qui s'affiche Tu peux voir les **logs de ton application en direct**.  
+Très utile pour déboguer une erreur sans accéder au serveur.😂😅
