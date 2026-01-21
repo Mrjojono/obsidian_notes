@@ -26,3 +26,7 @@ Venez **poser toutes vos questions**, de partager vos **apports**, ainsi que vos
 Quand ? *Vendredi à 21H*
 Où ? *en ligne via google meet*
 Lien inscription : https://tcc.hyver.org/e/tech-talk-3-on-prend-la-parole-et-vous-aussi
+
+
+je vois que beaucoup de connaissent pas render, et bien render permet de **déployer automatiquement** vos  application que  à chaque `git push` sur la branche principale.  
+Aucune commande manuelle, aucun stress. Tu pushes, Render s’occupe du reste.
