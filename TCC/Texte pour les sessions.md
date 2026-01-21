@@ -3,4 +3,8 @@
 [[tech_talk_3.png]] 
 
 
-Nous 
+vous guider et vous eclairer  tel est notre objectifs ,
+
+Nous invitons  a nous rejoindre pour notre Troisieme  tech talk ou nous prendrons la parole et vous aussi, vous obtiendrer les infos sur les derniers  actualités  du club , les changements  et opportunités, nous vous donnons aussi la  possibilité  de posé  toutes les questions que vous voudriez  vos apport et amelirations 
+
+ou? en ligne .  quand ?  Ce 
