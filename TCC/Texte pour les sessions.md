@@ -32,5 +32,5 @@ je vois que beaucoup de connaissent pas render, et bien render permet de **dépl
 
 
 
-vous pouvez heberger plein de truc sur  Render, il  supporte **Node.js, Python, Java, PHP, Docker, Static Sites** et bien plus.  sur render vous pouvez 
-Tu peux héberger un backend, un frontend et même des services Docker sur la même plateforme.
+vous pouvez heberger plein de truc sur  Render, il  supporte **Node.js, Python, Java, PHP, Docker, Static Sites, des services web et meme une base de données  Postgres** et bien plus. 
+Tu peux héberger un backend ( je  conseille de deployer beaucoup plus du backend dessus), un frontend et même des services Docker sur la même plateforme.
