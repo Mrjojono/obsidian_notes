@@ -80,7 +80,7 @@ Abonnez-vous pour ne rien rater 😊 et n'oublier pas  inscrivez-vous pour notre
 
 #Render  #OutilsDigitaux  #Developpeurs #TechTools  #Backend  #Cloud  #DevLife  #LinkedInTech
 
-Jediel Victorin SAMEY · Kodjo Kékéli Joan NUTSUKPUI · Joana ASSIH · Yvette KUNKA · Adjale Aimé BLIKINE
+
 
 
 
