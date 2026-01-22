@@ -59,34 +59,26 @@ Côté trafic, Render inclut 100 Go de bande passante sortante par mois, largeme
 
 ### OUTIL DE LA SEMAINE : Render
 
-Connaissez-vous **Render** ? 🤔  
-C’est une plateforme moderne qui permet de **déployer automatiquement vos applications** sans configuration compliquée.
+Connaissez-vous Render ? 🤔  
+C’est une plateforme moderne qui permet de déployer automatiquement vos applications sans configuration compliquée.
 
 À quoi ça sert ?  
-Héberger facilement des **backends, frontends, APIs et services Docker**, directement depuis GitHub
+Héberger facilement des backends, frontends, APIs et services Docker, directement depuis GitHub
 Un simple `git push` et Render s’occupe du reste 😌
-Render supporte **Node.js, Python, Java, PHP, Docker, sites statiques** et même des **bases de données PostgreSQL**.
+Render supporte Node.js, Python, Java, PHP, Docker, sites statiques et même des bases de données PostgreSQL.
 
 Il propose aussi :
 - des variables d’environnement sécurisées
 - des logs en temps réel pour déboguer facilement
     
-
-🆓 Plan gratuit disponible (idéal pour apprendre et tester).  
-⚠️ Les services gratuits se mettent en veille après ~15 min d’inactivité…  
+Plan gratuit disponible (idéal pour apprendre et tester).  
+ Les services gratuits se mettent en veille après 15 min d’inactivité…  
 mais il existe une astuce 👀😉
 
 Découvrez-le sur : **render.com**  
-Abonnez-vous pour ne rien rater 😊
+Abonnez-vous pour ne rien rater 😊 et n'oublier pas  inscrivez-vous pour notre prochaine  session ce vendredi :  [https://lnkd.in/dJKtBsaE](https://lnkd.in/dJKtBsaE)
 
-#Render  
-#OutilsDigitaux  
-#Developpeurs  
-#TechTools  
-#Backend  
-#Cloud  
-#DevLife  
-#LinkedInTech
+#Render  #OutilsDigitaux  #Developpeurs #TechTools  #Backend  #Cloud  #DevLife  #LinkedInTech
 
 Jediel Victorin SAMEY · Kodjo Kékéli Joan NUTSUKPUI · Joana ASSIH · Yvette KUNKA · Adjale Aimé BLIKINE
 
