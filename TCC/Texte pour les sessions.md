@@ -84,26 +84,27 @@ Abonnez-vous pour ne rien rater 😊 et n'oublier pas  inscrivez-vous pour notre
 
 
 
-*Vous codez seul alors que le monde travaille en équipe ?*
-Vous partager vos projet en format zip ? Alors que *GITHUB*  existe?
-
-Tout le monde en parle mais peu savent réellement comment l’utiliser efficacement.
-Et en plus vous voulez  contribuer à des projets  open source, mais vous ne savez pas vous y prendre? Don't worry 😁😉
-
-le Tech Campus Club IAI organise une session  pour découvrir et mieux comprendre GitHub, un outil incontournable pour tout développeur.
-
-Quand ? Vendredi à 21h
-Où ? En ligne via Google Meet
-Inscription : gratuite mais obligatoire (lien à préciser)
-
-[Un speaker invité] vous guidera à travers les bases essentielles et les bonnes pratiques de GitHub.
-
-Au programme :
-• Comprendre GitHub et son rôle dans les projets collaboratifs
-• Découvrir les fonctionnalités clés pour travailler en équipe
-• Bonnes pratiques pour bien démarrer et évoluer
-
-Que vous soyez débutant, étudiant, en reconversion ou professionnel, cette session est faite pour vous.
-
-
+	*Vous codez seul alors que le monde travaille en équipe ?*
+	Vous partager vos projet en format zip ? Alors que *GITHUB*  existe?
+	vous voulez  contribuer à des projets  open source, mais vous ne savez pas vous y prendre?
+	
+	Tout le monde en parle mais peu savent réellement comment l’utiliser efficacement.
+	Don't Worry 😁😉
+	
+	le Tech Campus Club IAI organise une session  pour découvrir et mieux comprendre GitHub, un outil incontournable pour tout bon développeur.
+	
+	Quand ? Vendredi à 21h
+	Où ? En ligne via Google Meet
+	Inscription : gratuite mais obligatoire (lien à préciser)
+	
+	[Un speaker invité] vous guidera à travers les bases essentielles et les bonnes pratiques de GitHub.
+	
+	Au programme :
+	• Comprendre GitHub et son rôle dans les projets collaboratifs
+	• Découvrir les fonctionnalités clés pour travailler en équipe
+	• Bonnes pratiques pour bien démarrer et évoluer
+	
+	Que vous soyez débutant, étudiant, en reconversion ou professionnel, cette session est faite pour vous.
+	
+	
 
