@@ -39,3 +39,7 @@ OLTP serveur transactionnelle   et OLAP serveur décisionnel ([[OLTP VS OLAP.png
 
 
 
+
+
+
+
