@@ -13,6 +13,9 @@ CREATE SERVER ROLE <nomRoleServer> ;
 
 Pour ajouter ou supprimer une connexion à un rôle de serveur, il faut utiliser l’instruction ALTER SERVER ROLE 
 
-exemple  
+
+## roles au niveau de base de données 
+
+db_owner : p
 
 
