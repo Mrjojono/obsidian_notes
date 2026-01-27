@@ -10,6 +10,8 @@ les ia souvent nous propose des technologies  pour nos  projets , on se retrouve
 L'over engeerring peu aussi causé  le delais  de l'entré  en marché   et cause un insactifaction voir , une distraction  du but principal du produit , ou du site web développé,   cela vous cause  un retard sur les retours utilisateurs  , moins de revenu et un avance potentiel perdue  
 
 cela constitue souvent un coup  fatale pour les entrepreneurs  en Afrique  , beaucoup d'entre eux echoue souvent a cause de se details qu'il neglige un peu trop souvent . 
-Les grandes entreprises comme apple , google , microso
+Les grandes entreprises comme apple , google , Microsoft  ont peut être  des systèmes  incroyable  sur lesquels  il est interrinsan de se basée , mais ces systèmes  sont fait pour accueillir  des milliers  d'utilisateurs et eux aussi ont commencé  avec de petites architecture  et ont evoluer en function de leur besoin?
 
-prenons l'exemple d'un développeur  Koffi qui développe  une Landing page pour une entreprise , ici le but principal c'est de créer   une image de l'entreprise , Mais voila Koffi tout content qui va  développer  la page en next js  , va acheter un abonnement  sur aws , 
+prenons l'exemple d'un développeur    une Landing page pour une entreprise , ici le but principal c'est de créer   une image de l'entreprise , Mais voila Koffi tout content qui va  développer  la page en next js  , va acheter un abonnement  sur aws, il passe des semaines a comparé  des fournisseurs  cloud alors que tout se dont il a besoin c'est de lier sont domaine a un petit déploiement  sur vercel  
+
+Le fait de perdre sont temps a se poser  des questions sur  des details  comme quel Ia intégrer  dans notre système , comment
