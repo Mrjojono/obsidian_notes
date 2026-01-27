@@ -14,4 +14,6 @@ Les grandes entreprises comme apple , google , Microsoft  ont peut être  des sy
 
 prenons l'exemple d'un développeur    une Landing page pour une entreprise , ici le but principal c'est de créer   une image de l'entreprise , Mais voila Koffi tout content qui va  développer  la page en next js  , va acheter un abonnement  sur aws, il passe des semaines a comparé  des fournisseurs  cloud alors que tout se dont il a besoin c'est de lier sont domaine a un petit déploiement  sur vercel  
 
-Le fait de perdre sont temps a se poser  des questions sur  des details  comme quel Ia intégrer  dans notre système , comment
+Le fait de perdre sont temps a se poser  des questions sur  des details  comme quel Ia intégrer  dans notre système, Alors que l'utilisateur n'en a pas besoin , voir ne vois meme pas cela. cela cause a l'integration de technologie  inutile bouffeur de temps aussi . Tout cela n'ai pas du tout bien pour un entrepreneur  puisque celui ci s'eloigne donc du besoin principal  , un entrepreneur doit tester le marché, voir comment les utilisateurs  se comporte , voir le comportement du système  ou de l'application  
+
+Je pense que a un niveau on se prend un peu trop la tête  , les débutants junior   en paye déjà  les frais, 
