@@ -28,6 +28,7 @@ exemple de scrimba qui a  diminuer  leur hébergement en dimuant le prix  d'héb
 les soltuion construite deviennes trop complexe  et difficile a maintenir et  consomme  plus d'argent qu'il n'en rapporte finalement  au entrepreneurs  , on devrais revoir cela, 
 
 Il n'est pas necessaire de construire tout ce qu'on pense qu'on aura besoin 
-Il faut se concentrer
+Il faut se concentrer sur les features essentiels  et nécessaire pour les utilisateurs  
+**Adoptez une approche MVP (Minimum Viable Product)**
 
 
