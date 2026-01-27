@@ -25,6 +25,9 @@ Je pense que a un niveau on se prend un peu trop la tête  , les débutants juni
 les solutions tech deviennent  trop chère   pour ce qu'il sont censé  faire ,  
 exemple de scrimba qui a  diminuer  leur hébergement en dimuant le prix  d'hébergement  pas ans par exmple  , 
 
-les soltuion construite deviennes trop complexe   consomme  plus d'argent qu'il n'en rapporte finalement  au entrepreneurs  , on devrais revoir cela  ,
+les soltuion construite deviennes trop complexe  et difficile a maintenir et  consomme  plus d'argent qu'il n'en rapporte finalement  au entrepreneurs  , on devrais revoir cela, 
+
+Il n'est pas necessaire de construire tout ce qu'on pense qu'on aura besoin 
+Il faut se concentrer
 
 
