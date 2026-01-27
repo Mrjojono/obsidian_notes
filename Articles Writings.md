@@ -21,4 +21,6 @@ Je pense que a un niveau on se prend un peu trop la tête  , les débutants juni
 	-* des applications avec des technologies  inutile , 
 	* un cruelle manque d'originalité  dans les solutions tech actuelles  
 	* une carence  en développeur  compétent ne se reponsant pas sur la nouvelle IDE avec intelligence artificiel intègre  *
-	* Des développeurs  qui ne développe  plus mais prompt 
+
+
+
