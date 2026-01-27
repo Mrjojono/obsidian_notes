@@ -16,4 +16,9 @@ prenons l'exemple d'un développeur    une Landing page pour une entreprise , ic
 
 Le fait de perdre sont temps a se poser  des questions sur  des details  comme quel Ia intégrer  dans notre système, Alors que l'utilisateur n'en a pas besoin , voir ne vois meme pas cela. cela cause a l'integration de technologie  inutile bouffeur de temps aussi . Tout cela n'ai pas du tout bien pour un entrepreneur  puisque celui ci s'eloigne donc du besoin principal  , un entrepreneur doit tester le marché, voir comment les utilisateurs  se comporte , voir le comportement du système  ou de l'application  
 
-Je pense que a un niveau on se prend un peu trop la tête  , les débutants junior   en paye déjà  les frais, 
+Je pense que a un niveau on se prend un peu trop la tête  , les débutants junior   en paye déjà  les frais. la facilité  avec lequel une personne non informaticienne ou informaticienne  peu développer  une application mène  a des résultats  catastrophiques
+
+	-* des applications avec des technologies  inutile , 
+	* un cruelle manque d'originalité  dans les solutions tech actuelles  
+	* une carence  en développeur  compétent ne se reponsant pas sur la nouvelle IDE avec intelligence artificiel intègre  *
+	* Des développeurs  qui ne développe  plus mais prompt 
