@@ -22,6 +22,9 @@ Je pense que a un niveau on se prend un peu trop la tête  , les débutants juni
 	* un cruelle manque d'originalité  dans les solutions tech actuelles  
 	* une carence  en développeur  compétent ne se reponsant pas sur la nouvelle IDE avec intelligence artificiel intègre  *
 
+les solutions tech deviennent  trop chère   pour ce qu'il sont censé  faire ,  
+exemple de scrimba qui a  diminuer  leur hébergement en dimuant le prix  d'hébergement  pas ans par exmple  , 
 
+les soltuion construite deviennes trop complexe   consomme  plus d'argent qu'il n'en rapporte finalement  au entrepreneurs  , on devrais revoir cela  ,
 
 
