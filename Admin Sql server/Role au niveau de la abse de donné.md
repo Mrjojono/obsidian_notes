@@ -66,5 +66,16 @@ GRANT CONNECT TO guest
 
 ## Désactivation du compte guest 
 ```
-```
 REVOKE CONNECT FROM guest
+```
+
+## Création, modification et suppression des utilsateurs 
+
+```
+CREATE USER 'nomutilisateur' FOR LOGIN 'nomconnexion' [WITH DEFAULT_SCHEMA = ]
+```
+
+	*modification  d'un utilisateur *
+```
+ALTER USER < nomUtilisateur > WITH NAME =< nouveauNomUtilisateur >, DEFAULT_SCHEMA 
+```
