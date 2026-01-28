@@ -49,3 +49,11 @@ Le MUST_CHANGE ne functionne que si check_expiration et check_policy sont en mod
 ```
 ALTER LOGIN {ENABLE | DISABLE} ;
 ```
+
+
+## Modifier la base de données par défaut, le mot de passe 
+
+```
+ALTER LOGIN WITH DEFAULT_DATABASE = [;] 
+ALTER LOGIN WITH PASSWORD= ‘mot_de_passe’[;]
+```
