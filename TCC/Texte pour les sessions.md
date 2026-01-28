@@ -110,17 +110,18 @@ Abonnez-vous pour ne rien rater 😊 et n'oublier pas  inscrivez-vous pour notre
 
 
 
-Miabe hackathon approche  bientôt  mais vous ignorer  comment vous inscrire voir vous ne comprenez  pas du tout comme ca marche  ? 
+Le hackathon MBH (MIABE HACKATON ) approche à grands pas, mais vous ignorez comment vous inscrire ou vous ne comprenez pas vraiment comment cela fonctionne ?
 
-Bonne nouvelle Fata school  organise une session ce Lundi 01 Fevrier 2026 a ??h 
+Bonne nouvelle ! **Fata School** organise une session ce **lundi 1er février 2026 à  ??h.  
+Lien : .....
 
-Objectif : 
-- vous montrer comment l'inscription  se fait sur l'application  fat  
-- vous expliquer  plus en profondeur  le déroulement  du hackaton et le fonctionnement 
-- une session d'echange question reponse pour vous éclairer sur vos inquiétude  
+**Au programme :**
 
-Ne rater  donc pas cette session ou vous en payerais le prix 
+- Une démonstration de l’inscription à l’événement via l’application FATA.
+- Une explication détaillée du déroulement du hackathon et de son fonctionnement.
+- Une session de questions-réponses pour éclaircir toutes vos inquiétudes.
 
+Ne manquez pas cette session, car vous risqueriez de le regretter !
 	
 	
 
