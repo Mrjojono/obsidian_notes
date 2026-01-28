@@ -79,3 +79,9 @@ CREATE USER 'nomutilisateur' FOR LOGIN 'nomconnexion' [WITH DEFAULT_SCHEMA = ]
 ```
 ALTER USER < nomUtilisateur > WITH NAME =< nouveauNomUtilisateur >, DEFAULT_SCHEMA 
 ```
+
+
+## schema  
+**ensemble  logique d'objet a l'intérieur  d'une base de données 
+
+
