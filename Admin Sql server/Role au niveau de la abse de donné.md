@@ -57,3 +57,14 @@ ALTER LOGIN {ENABLE | DISABLE} ;
 ALTER LOGIN WITH DEFAULT_DATABASE = [;] 
 ALTER LOGIN WITH PASSWORD= ‘mot_de_passe’[;]
 ```
+
+## Activation du compte guest
+
+```
+GRANT CONNECT TO guest
+```
+
+## Désactivation du compte guest 
+```
+```
+REVOKE CONNECT FROM guest
