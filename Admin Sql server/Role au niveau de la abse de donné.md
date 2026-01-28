@@ -19,3 +19,11 @@ Pour ajouter ou supprimer une connexion à un rôle de serveur, il faut utiliser
 db_owner : p
 
 
+connaitre la base de données  par défaut  de chaque connexion dans sql server 
+
+```
+use master;
+GO
+	SELECT name as 'Nom' ,loginName as 'Connexion', dbname as 'base par defaut'
+	DATABASEPROPERTYEX (dbname, 'Status') as 'Etat de la base' FROM sys.syslogins
+```
