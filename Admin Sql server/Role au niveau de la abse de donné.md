@@ -27,3 +27,25 @@ GO
 	SELECT name as 'Nom' ,loginName as 'Connexion', dbname as 'base par defaut'
 	DATABASEPROPERTYEX (dbname, 'Status') as 'Etat de la base' FROM sys.syslogins
 ```
+
+
+## creation d'une connexion a sql server  
+
+- Mode de sécurité  Windows  
+```
+CREATE LOGIN <nomde conncexion> FROM WINDOWS WIH DEFAULT_DATABASES= ..
+```
+
+- Mode de sécurité  Mixte 
+```
+CREATE LOGIN Joan WITH PASSWORD= joankekeli MUST_CHANGE, CHECK_EXPIRATION = on , CHECK_POLICY = on , DEFAULT_DATABASE = bdVille
+```
+
+Le MUST_CHANGE ne functionne que si check_expiration et check_policy sont en mode on 
+
+
+## Activer, désactiver une connexion 
+
+```
+ALTER LOGIN {ENABLE | DISABLE} ;
+```
