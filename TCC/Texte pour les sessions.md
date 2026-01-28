@@ -105,6 +105,22 @@ Abonnez-vous pour ne rien rater 😊 et n'oublier pas  inscrivez-vous pour notre
 	• Bonnes pratiques pour bien démarrer et évoluer
 	
 	Que vous soyez débutant, étudiant, en reconversion ou professionnel, cette session est faite pour vous.
+
+
+
+
+
+Miabe hackathon approche  bientôt  mais vous ignorer  comment vous inscrire voir vous ne comprenez  pas du tout comme ca marche  ? 
+
+Bonne nouvelle Fata school  organise une session ce Lundi 01 Fevrier 2026 a ??h 
+
+Objectif : 
+- vous montrer comment l'inscription  se fait sur l'application  fat  
+- vous expliquer  plus en profondeur  le déroulement  du hackaton et le fonctionnement 
+- une session d'echange question reponse pour vous éclairer sur vos inquiétude  
+
+Ne rater  donc pas cette session ou vous en payerais le prix 
+
 	
 	
 
