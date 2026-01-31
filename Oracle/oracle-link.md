@@ -2,7 +2,6 @@
 
 
 
-
 Très bien, on va poser ça calmement, brique par brique 🧱. Oracle aime les rituels précis, mais une fois compris, tout coule.
 
 ---
