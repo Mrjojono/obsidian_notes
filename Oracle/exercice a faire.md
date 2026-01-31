@@ -1,5 +1,4 @@
 
-
 creation de tablespace 
 
 un tablespace temporaire est temp  
