@@ -183,7 +183,10 @@ END;
 /
 ```
 
----
+@/home/HRENV/human_resources/hr_main.sql hr users temp /oracle/logs
+
+
+--- 
 
 ## 6. Instructions SQL en PL/SQL
 
