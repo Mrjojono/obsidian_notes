@@ -2,19 +2,6 @@
 
 ---
 
-## 📋 Table des matières
-
-1. [Introduction à Oracle](https://claude.ai/chat/83b8872c-12c7-406a-abdf-e2d4d4b94c06#1-introduction-%C3%A0-oracle)
-2. [Installation et produits Oracle](https://claude.ai/chat/83b8872c-12c7-406a-abdf-e2d4d4b94c06#2-installation-et-produits-oracle)
-3. [Gestion des instances Oracle](https://claude.ai/chat/83b8872c-12c7-406a-abdf-e2d4d4b94c06#3-gestion-des-instances-oracle)
-4. [Architecture de la base de données](https://claude.ai/chat/83b8872c-12c7-406a-abdf-e2d4d4b94c06#4-architecture-de-la-base-de-donn%C3%A9es)
-5. [Gestion des utilisateurs et sécurité](https://claude.ai/chat/83b8872c-12c7-406a-abdf-e2d4d4b94c06#5-gestion-des-utilisateurs-et-s%C3%A9curit%C3%A9)
-6. [Gestion des objets (Tables, Vues, Index...)](https://claude.ai/chat/83b8872c-12c7-406a-abdf-e2d4d4b94c06#6-gestion-des-objets)
-7. [Sauvegarde et restauration](https://claude.ai/chat/83b8872c-12c7-406a-abdf-e2d4d4b94c06#7-sauvegarde-et-restauration)
-8. [Résolution de problèmes](https://claude.ai/chat/83b8872c-12c7-406a-abdf-e2d4d4b94c06#8-r%C3%A9solution-de-probl%C3%A8mes)
-
----
-
 ## 1. Introduction à Oracle
 
 ### 🎯 Points clés
