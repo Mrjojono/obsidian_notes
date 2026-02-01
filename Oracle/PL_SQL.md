@@ -36,6 +36,9 @@ END;
 
 **Note :** Le `/` final est obligatoire dans SQL*Plus pour exécuter le bloc.
 
+NB : POUR ACTIVER LA SORTIE   DE LA REPONSE   : ==SET SERVEROUTPUT ON==
+
+
 ---
 
 ## 3. Types de blocs PL/SQL
