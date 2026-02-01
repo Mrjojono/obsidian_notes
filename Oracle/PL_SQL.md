@@ -12,6 +12,12 @@
 
 ---
 
+La clé est de **toujours travailler dans la PDB, pas dans le CDB** !
+
+| Erreur    | Cause                   | Solution                                  |
+| --------- | ----------------------- | ----------------------------------------- |
+| ORA-65096 | Vous êtes dans CDB$ROOT | `ALTER SESSION SET CONTAINER = FREEPDB1;` |
+
 ## 2. Structure d'un bloc PL/SQL
 
 ```sql
