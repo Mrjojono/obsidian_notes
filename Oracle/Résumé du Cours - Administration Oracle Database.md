@@ -4,7 +4,7 @@
 ---
 
 ## 1. Introduction à Oracle
-
+[]
 ### Points clés
 
 - **Oracle Corporation** : Premier SGBDR au monde (1979)
