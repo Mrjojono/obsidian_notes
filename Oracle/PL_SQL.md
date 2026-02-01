@@ -1,3 +1,7 @@
+---
+share_link: https://share.note.sx/lu0h3psb#DsKD4oskdgBt9cwNNrYFqGEnICD6T3Tk4cV71GDLKjY
+share_updated: 2026-02-01T18:07:09+01:00
+---
 # GUIDE COMPLET PL/SQL
 
 ## 1. Qu'est-ce que PL/SQL ?
