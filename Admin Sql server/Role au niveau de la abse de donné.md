@@ -11,12 +11,14 @@ CREATE SERVER ROLE <nomRoleServer> ;
 
 ## Accorder les rôles  
 
-Pour ajouter ou supprimer une connexion à un rôle de serveur, il faut utiliser l’instruction ALTER SERVER ROLE 
+Pour ajouter ou supprimer une connexion à un rôle de serveur, il faut utiliser l’instruction
+ALTER SERVER ROLE  ADD MENBER ' nom de la connexion'
 
 
 ## roles au niveau de base de données 
 
-db_owner : p
+db_owner :  propriétaire  de la base de données  
+db_databasewrite :  
 
 
 connaitre la base de données  par défaut  de chaque connexion dans sql server 
