@@ -1,5 +1,6 @@
 
-[[PL_SQL]]PL/Sql ()
+[[PL_SQL]]  quelques  rappel sur le pl/sql 
+
 ---
 
 ## 1. Introduction à Oracle
