@@ -1,76 +1,60 @@
+# MICROSOFT SQL SERVER - ADMINISTRATION
 
-
-#  MICROSOFT SQL SERVER - ADMINISTRATION
-
-## Résumé des Essentiels Théoriques
+## Résumé des Essentiels pour l'Examen
 
 **Version:** SQL Server 2016  
-**Enseignant:** N'SOUGAN Folly W.  
-**Niveau:** Cours d'Administration des Bases de Données
+**Niveau:** Administration des Bases de Données
 
 ---
 
-## 📑 Table des Matières
 
-1. [Présentation de SQL Server](https://claude.ai/chat/83b8872c-12c7-406a-abdf-e2d4d4b94c06#chapitre-1-pr%C3%A9sentation)
-2. [Installation et Configuration](https://claude.ai/chat/83b8872c-12c7-406a-abdf-e2d4d4b94c06#chapitre-2-installation-et-configuration)
-3. [Gestion des Bases de Données](https://claude.ai/chat/83b8872c-12c7-406a-abdf-e2d4d4b94c06#chapitre-3-gestion-des-bases-de-donn%C3%A9es)
-4. [Sécurité des Accès](https://claude.ai/chat/83b8872c-12c7-406a-abdf-e2d4d4b94c06#chapitre-4-s%C3%A9curit%C3%A9-des-acc%C3%A8s)
-5. [Glossaire](https://claude.ai/chat/83b8872c-12c7-406a-abdf-e2d4d4b94c06#glossaire)
-6. [Bonnes Pratiques](https://claude.ai/chat/83b8872c-12c7-406a-abdf-e2d4d4b94c06#bonnes-pratiques)
 
----
+## CHAPITRE 1: Présentation
 
-## 🎯 CHAPITRE 1: Présentation
+### 1.1 Définition
 
-### 1.1 Qu'est-ce que SQL Server ?
-
-**SQL Server est un SGBDR (Système de Gestion de Base de Données Relationnelles)**
+**SQL Server** est un SGBDR (Système de Gestion de Base de Données Relationnelles) développé par Microsoft.
 
 **Responsabilités principales:**
 
-- ✅ Stocker les données
-- ✅ Vérifier les contraintes d'intégrité
-- ✅ Garantir la cohérence des données (même en cas de panne)
-- ✅ Assurer les relations entre les données
+- Stocker les données
+- Vérifier les contraintes d'intégrité
+- Garantir la cohérence des données
+- Assurer les relations entre les données
 
 ### 1.2 Intégration avec Windows
 
-SQL Server est **complètement intégré à Windows**, ce qui lui permet de bénéficier de:
+SQL Server exploite les services Windows :
 
 |Composant Windows|Utilisation par SQL Server|
 |---|---|
-|**Observateur d'événements**|Journal des applications pour consigner les erreurs SQL Server|
-|**Traitements parallèles**|Exploitation des architectures multiprocesseurs via threads Windows|
-|**Analyseur de Performance**|Compteurs SQL Server pour détecter les goulots d'étranglement|
-|**Sécurité Windows**|Authentification unique (single sign-on) pour les utilisateurs|
-|**Services Windows**|Exécution des composants SQL Server|
-|**Active Directory**|Enregistrement automatique des instances SQL Server|
+|**Observateur d'événements**|Journal des erreurs SQL Server|
+|**Traitements parallèles**|Exploitation multiprocesseurs|
+|**Analyseur de Performance**|Compteurs de performance|
+|**Sécurité Windows**|Authentification unique (SSO)|
+|**Services Windows**|Exécution des composants|
+|**Active Directory**|Enregistrement des instances|
 
 ### 1.3 Types de Bases de Données
 
-#### 📊 OLTP (Online Transactional Processing)
+#### OLTP (Online Transactional Processing)
 
 **Caractéristiques:**
 
-- Stockage direct des informations
-- Réutilisation ultérieure des données telles qu'enregistrées
-- **Serveur transactionnel**
-- Focus: opérations quotidiennes (INSERT, UPDATE, DELETE)
+- Stockage et réutilisation directe des données
+- Serveur transactionnel
+- Opérations quotidiennes (INSERT, UPDATE, DELETE)
+- Gestion courante (commandes, clients, stocks)
 
-**Utilisation:** Gestion courante des données (commandes, clients, stocks, etc.)
-
-#### 📈 OLAP (Online Analytical Processing)
+#### OLAP (Online Analytical Processing)
 
 **Caractéristiques:**
 
 - Informations statistiques et agrégées
-- Extraction sous forme de cubes multidimensionnels
-- **Serveur décisionnel (Data Warehouse)**
-- Focus: aide à la décision
-- S'appuie sur des données OLTP
-
-**Utilisation:** Analyses, rapports, business intelligence
+- Cubes multidimensionnels
+- Serveur décisionnel (Data Warehouse)
+- Aide à la décision
+- S'appuie sur données OLTP
 
 **Comparaison OLTP vs OLAP:**
 
@@ -85,20 +69,18 @@ SQL Server est **complètement intégré à Windows**, ce qui lui permet de bén
 
 ### 1.4 Composants SQL Server
 
-#### Composants Serveur (Services Windows)
+#### Services Windows (Composants Serveur)
 
 **1. SQL Server (Moteur de BD)**
 
 - Service principal
-- Nom: `SQLSERVER (MSSQLSERVER)` pour instance par défaut
-- Nom: `SQLSERVER (<nomInstance>)` pour instance nommée
-- Gère le stockage et le traitement des données
+- Nom instance par défaut: `SQLSERVER (MSSQLSERVER)`
+- Nom instance nommée: `SQLSERVER (<nomInstance>)`
 
 **2. SQL Server Agent**
 
 - Gestion des tâches planifiées
 - Surveillance et alertes
-- Nom: `SQL Server Agent (MSSQLSERVER)` ou `SQL Server Agent (<nomInstance>)`
 
 **3. Microsoft Full Text Search**
 
@@ -120,15 +102,7 @@ SQL Server est **complètement intégré à Windows**, ce qui lui permet de bén
 - **Langage R**: Statistiques pour bases décisionnelles
 - **CLR**: Développement en VB.NET et C#
 
-### 1.5 Architecture Globale
-
-**Connectivité Client:**
-
-- Bibliothèques OLE-DB et ODBC
-- SMO (SQL Server Management Objects) pour outils graphiques
-- Gestion du réseau automatique
-
-**Nom Complet des Objets:**
+### 1.5 Nom Complet des Objets
 
 ```
 serveur.nomBase.propriétaire.objet
@@ -136,48 +110,38 @@ serveur.nomBase.propriétaire.objet
 
 ### 1.6 Bases de Données Système
 
-#### 🔑 Bases Système Obligatoires
+#### Bases Système Obligatoires
 
-**1. MASTER** ⭐ (La plus importante)
+**1. MASTER** (La plus importante)
 
 - Base de données principale
-- Contient:
-    - Comptes de connexion
-    - Options de configuration
-    - Liste des bases de données utilisateurs
-    - Références vers les fichiers de bases utilisateurs
-- ⚠️ **À sauvegarder impérativement**
+- Contient : comptes de connexion, options de configuration, liste des bases utilisateurs
+- **À sauvegarder impérativement**
 
 **2. MODEL**
 
 - Template pour nouvelles bases
-- Tout objet ajouté dans MODEL apparaît dans les nouvelles bases créées
+- Tout objet ajouté dans MODEL apparaît dans les nouvelles bases
 - Contient les tables système par défaut
 
 **3. TEMPDB**
 
-- Espace de stockage temporaire **partagé**
-- Recréée à chaque démarrage
-- Contient:
-    - Tables temporaires locales (#) et globales (##)
-    - Tables de travail intermédiaires
-    - Résultats de tris
-- Non sauvegardable (recréée automatiquement)
+- Espace de stockage temporaire partagé
+- **Recréée à chaque démarrage**
+- Contient : tables temporaires (#, ##), tables de travail, résultats de tris
+- Non sauvegardable
 
 **4. MSDB**
 
 - Utilisée par SQL Server Agent
-- Contient:
-    - Définition des tâches planifiées
-    - Alertes et opérateurs
-    - Historique d'exécution des tâches
+- Contient : tâches planifiées, alertes, opérateurs, historique
 
 **5. RESOURCE**
 
-- Base de données en lecture seule
+- Base en lecture seule
 - Contient la définition des objets système
-- Objets apparaissent dans le schéma `sys`
-- ⚠️ Sauvegarde manuelle du fichier .mdf nécessaire
+- Objets dans le schéma `sys`
+- Sauvegarde manuelle du fichier .mdf nécessaire
 
 ### 1.7 Vues Système Importantes
 
@@ -193,8 +157,6 @@ serveur.nomBase.propriétaire.objet
 |`sys.database_files`|Fichiers composant la BD|
 
 ### 1.8 Procédures Stockées Système
-
-**Principales procédures (préfixe sp_):**
 
 |Procédure|Description|
 |---|---|
@@ -216,20 +178,18 @@ serveur.nomBase.propriétaire.objet
 
 ### 1.10 Tâches de l'Administrateur
 
-**Responsabilités principales:**
-
-1. 🔧 Gérer les services SQL Server
-2. 🖥️ Gérer les instances SQL Server
-3. 💾 Mettre en place sauvegardes et restaurations
-4. ⚡ Configurer la disponibilité des données
-5. 🌐 Gérer les configurations réseau
-6. 📥 Import/Export de données
-7. 🤖 Automatiser les tâches avec SQL Agent
-8. 📊 Mesurer et optimiser les performances
+1. Gérer les services SQL Server
+2. Gérer les instances SQL Server
+3. Mettre en place sauvegardes et restaurations
+4. Configurer la disponibilité des données
+5. Gérer les configurations réseau
+6. Import/Export de données
+7. Automatiser les tâches avec SQL Agent
+8. Mesurer et optimiser les performances
 
 ---
 
-## 🔧 CHAPITRE 2: Installation et Configuration
+## CHAPITRE 2: Installation et Configuration
 
 ### 2.1 Éditions de SQL Server
 
@@ -237,57 +197,38 @@ serveur.nomBase.propriétaire.objet
 
 |Édition|Caractéristiques|Usage|
 |---|---|---|
-|**Enterprise**|- Édition la plus complète<br>- Tous les composants disponibles<br>- 32 et 64 bits<br>- Partitionnement de tables<br>- Compression de données<br>- BI avancée|Production grandes entreprises<br>Volumes très importants|
-|**Standard**|- Moteur performant<br>- Fonctionnalités essentielles<br>- Limitations sur volumes|PME<br>Charges moyennes|
-|**Express**|- **GRATUITE** (aucune licence)<br>- Limite: 10 Go de données<br>- Limite: 1 Go de mémoire<br>- Utilisateurs illimités|Applications monoposte<br>Développement<br>Petites applications|
-|**Developer**|- Toutes fonctionnalités Enterprise<br>- ⚠️ **Interdite en production**<br>- Licence développement|Développement<br>Tests<br>Formation|
-|**Web**|- Orientée web<br>- Coût réduit<br>- Admin réduite<br>- Pas de BI|Hébergement web<br>Sites à faible coût|
+|**Enterprise**|Édition complète, tous composants, 32 et 64 bits, partitionnement, compression|Production grandes entreprises, volumes très importants|
+|**Standard**|Moteur performant, fonctionnalités essentielles, limitations sur volumes|PME, charges moyennes|
+|**Express**|**GRATUITE**, Limite 10 Go de données, Limite 1 Go de mémoire, Utilisateurs illimités|Applications monoposte, développement, petites applications|
+|**Developer**|Toutes fonctionnalités Enterprise, **Interdite en production**, Licence développement|Développement, tests, formation|
+|**Web**|Orientée web, coût réduit, admin réduite, pas de BI|Hébergement web, sites à faible coût|
 
 ### 2.2 Notion d'Instance
 
-**Qu'est-ce qu'une instance ?**
+**Définition:**
 
 - Plusieurs instances SQL Server sur un même serveur physique
-- Optimisation des licences
-- Cloisonnement de la gestion
-- Chaque instance = environnement SQL Server indépendant
+- Optimisation des licences et cloisonnement
+- Chaque instance = environnement indépendant
 
 **Types d'instances:**
 
 1. **Instance par défaut**: `MSSQLSERVER`
 2. **Instances nommées**: `MSSQLSERVER\NomInstance`
 
-### 2.3 Préparation de l'Installation
-
-**Prérequis système:**
-
-- Système d'exploitation Windows Server (ou poste de travail pour dev)
-- Espace disque suffisant
-- RAM adéquate selon l'édition
-- Processeur compatible
-
-**Outil d'Analyse de Configuration Système:**
-
-- Vérifie les prérequis avant installation
-- Détecte les problèmes potentiels
-- Recommandations d'installation
-
-### 2.4 SQL Server Management Studio (SSMS)
+### 2.3 SQL Server Management Studio (SSMS)
 
 **Outil principal d'administration:**
 
 **Fonctionnalités:**
 
-- 🎨 Interface graphique complète
-- 💻 Requêteur avancé avec:
-    - Coloration syntaxique
-    - Débogage
-    - Complétion automatique (depuis 2012)
-- 🌐 Gestion centralisée d'instances distantes
-- 👥 Pour administrateurs ET développeurs
-- 📝 Gestion graphique des instances et objets
+- Interface graphique complète
+- Requêteur avancé avec coloration syntaxique, débogage, complétion automatique
+- Gestion centralisée d'instances distantes
+- Pour administrateurs ET développeurs
+- Gestion graphique des instances et objets
 
-### 2.5 Configuration des Services
+### 2.4 Configuration des Services
 
 #### États des Services
 
@@ -299,52 +240,31 @@ serveur.nomBase.propriétaire.objet
 
 #### Méthodes de Gestion
 
-1. **Gestionnaire de Configuration SQL Server** (recommandé)
-2. **Gestionnaire des Services Windows**
-3. **SQL Server Management Studio**
+1. Gestionnaire de Configuration SQL Server (recommandé)
+2. Gestionnaire des Services Windows
+3. SQL Server Management Studio
 
-### 2.6 Modes de Licence
+### 2.5 Modes de Licence
 
 #### Tableau Récapitulatif
 
 |Type de Licence|Principe|Quand l'utiliser|
 |---|---|---|
-|**Par Cœur**|Licence pour chaque cœur de processeur<br>Utilisateurs illimités|Environnements avec nombreux utilisateurs<br>Accès Internet<br>Utilisateurs inconnus|
-|**Par Utilisateur (CAL)**|Licence pour chaque utilisateur<br>+ Licence serveur|Nombre d'utilisateurs connu et limité<br>Utilisateurs multi-serveurs|
-|**Par Poste**|Licence pour chaque périphérique<br>+ Licence serveur|Postes partagés<br>Multiples utilisateurs par poste|
+|**Par Cœur**|Licence pour chaque cœur de processeur, utilisateurs illimités|Nombreux utilisateurs, accès Internet, utilisateurs inconnus|
+|**Par Utilisateur (CAL)**|Licence pour chaque utilisateur + licence serveur|Nombre d'utilisateurs connu et limité, utilisateurs multi-serveurs|
+|**Par Poste**|Licence pour chaque périphérique + licence serveur|Postes partagés, multiples utilisateurs par poste|
 
 **Disponibilité par Édition:**
 
 |Édition|Licence par Cœur|Licence par Serveur + CAL|
 |---|---|---|
-|Enterprise|✅|❌|
-|Standard|✅|✅|
-|Business Intelligence|✅|❌|
-
-#### Exemple Pratique (Licence par Cœur)
-
-**Contexte:**
-
-- 1 serveur SQL
-- 10 stations de travail
-- 2 groupes de 5 postes (jour/nuit)
-- Pas de chevauchement
-
-**Réponse:** Nombre de licences = nombre de cœurs du serveur (pas de CAL nécessaires)
-
-#### Licence par Utilisateur vs Poste
-
-**Serveur d'Application Intermédiaire:**
-
-Lorsqu'un serveur d'application se place entre les utilisateurs et SQL Server:
-
-- Les utilisateurs se connectent au serveur d'application
-- Le serveur d'application se connecte à SQL Server
-- **Solution:** Licence serveur d'application + CAL pour chaque utilisateur
+|Enterprise|Oui|Non|
+|Standard|Oui|Oui|
+|Business Intelligence|Oui|Non|
 
 ---
 
-## 💾 CHAPITRE 3: Gestion des Bases de Données
+## CHAPITRE 3: Gestion des Bases de Données
 
 ### 3.1 Organisation Physique
 
@@ -362,21 +282,21 @@ Disques durs
 
 **Principe:**
 
-- Chaque base = au minimum 2 fichiers (données + journal)
-- Fichiers propres à chaque base (pas de partage entre bases)
+- Chaque base = minimum 2 fichiers (données + journal)
+- Fichiers propres à chaque base (pas de partage)
 
-### 3.2 Notion de Transaction
+### 3.2 Transactions
 
 #### Définition ACID
 
-Une transaction = ensemble **indivisible** d'ordres T-SQL
+Transaction = ensemble **indivisible** d'ordres T-SQL
 
 **Propriétés ACID:**
 
-- **A**tomicité: Tout ou rien
-- **C**ohérence: État cohérent avant et après
-- **I**solation: Pas d'interférence entre transactions
-- **D**urabilité: Modifications permanentes après COMMIT
+- **Atomicité**: Tout ou rien
+- **Cohérence**: État cohérent avant et après
+- **Isolation**: Pas d'interférence entre transactions
+- **Durabilité**: Modifications permanentes après COMMIT
 
 #### Commandes de Transaction
 
@@ -400,33 +320,22 @@ BEGIN TRAN
 COMMIT TRAN  -- Valide opération 1
 ```
 
-**Cas d'Usage Classique:** Virement bancaire
-
-- Débit compte A + Crédit compte B dans une même transaction
-- Si une opération échoue → les deux sont annulées
-
 ### 3.3 Structure des Fichiers
 
 #### Types de Fichiers SQL Server
 
-**1. Fichiers de Données**
+**Fichiers de Données**
 
 |Type|Extension|Obligatoire|Contenu|
 |---|---|---|---|
-|**Primaire**|`.mdf`|✅ OUI|Catalogue de base de données + données|
-|**Secondaire**|`.ndf`|❌ Non|Objets et données utilisateurs|
+|**Primaire**|`.mdf`|OUI|Catalogue de base de données + données|
+|**Secondaire**|`.ndf`|Non|Objets et données utilisateurs|
 
-**Chemin par défaut (SQL 2019):**
-
-```
-C:\RepertoireInstance\MSSQL15.NomInstance\MSSQL\Data
-```
-
-**2. Fichiers Journaux**
+**Fichiers Journaux**
 
 |Type|Extension|Obligatoire|Contenu|
 |---|---|---|---|
-|**Journal**|`.ldf`|✅ OUI|Images avant/après modifications|
+|**Journal**|`.ldf`|OUI|Images avant/après modifications|
 
 #### Rôle des Fichiers Journaux
 
@@ -434,9 +343,9 @@ C:\RepertoireInstance\MSSQL15.NomInstance\MSSQL\Data
 
 **Utilisation:**
 
-- ✅ Restauration automatique après arrêt brutal
-- ✅ Opérations de sauvegarde
-- ✅ Réplication de données
+- Restauration automatique après arrêt brutal
+- Opérations de sauvegarde
+- Réplication de données
 
 **Opérations journalisées:**
 
@@ -444,29 +353,12 @@ C:\RepertoireInstance\MSSQL15.NomInstance\MSSQL\Data
 - Création d'index
 - Modifications de structure
 
-#### Fonctionnement de la Journalisation
+#### Fonctionnement de la Journalisation (WAL - Write Ahead Log)
 
 ```
-┌─────────────────────────────────────┐
-│     MÉMOIRE VIVE (SQL SERVER)       │
-│  ┌──────────┐      ┌──────────┐    │
-│  │  Données │      │  Journal │    │
-│  │  modif.  │──1──→│   WAL    │    │
-│  └──────────┘      └──────────┘    │
-│       │                   │         │
-└───────│───────────────────│─────────┘
-        │                   │
-        2                   3
-        │                   │
-        ↓                   ↓
-   ┌─────────┐         ┌─────────┐
-   │ .mdf    │         │  .ldf   │
-   │ .ndf    │         │         │
-   └─────────┘         └─────────┘
-
 1. Modification en mémoire
-2. Écriture différée vers fichiers données
-3. Écriture immédiate vers journal (WAL - Write Ahead Log)
+2. Écriture immédiate vers journal (.ldf)
+3. Écriture différée vers fichiers données (.mdf, .ndf)
 ```
 
 ### 3.4 Structure Interne des Fichiers
@@ -500,47 +392,19 @@ C:\RepertoireInstance\MSSQL15.NomInstance\MSSQL\Data
 |**Extensions mixtes**|Partagées entre plusieurs objets (petites tables)|
 |**Extensions uniformes**|Dédiées à un seul objet (grandes tables)|
 
-**Schéma:**
-
-```
-┌───────────────────────────────────────────┐
-│         FICHIER DE DONNÉES (.mdf)         │
-├───────────────────────────────────────────┤
-│  Extension 1 (64 Ko)                      │
-│  ┌──────┬──────┬──────┬──────┬─────┐     │
-│  │ Page │ Page │ Page │ Page │ ... │     │
-│  │ 8Ko  │ 8Ko  │ 8Ko  │ 8Ko  │     │     │
-│  └──────┴──────┴──────┴──────┴─────┘     │
-├───────────────────────────────────────────┤
-│  Extension 2 (64 Ko)                      │
-│  ┌──────┬──────┬──────┬──────┬─────┐     │
-│  │ Page │ Page │ Page │ Page │ ... │     │
-│  └──────┴──────┴──────┴──────┴─────┘     │
-└───────────────────────────────────────────┘
-```
-
 ### 3.5 Création de Base de Données
-
-#### Paramètres de Création
-
-**Informations minimales:**
-
-1. Nom de la base de données
-2. Classement (COLLATION)
-3. Taille initiale
-4. Emplacement de stockage
 
 #### Paramètres des Fichiers
 
 |Paramètre|Obligatoire|Description|
 |---|---|---|
-|**NAME**|✅|Nom logique du fichier (utilisé en T-SQL)|
-|**FILENAME**|✅|Chemin et nom physique sur disque|
-|**SIZE**|❌|Taille initiale (défaut: 8 MB pour .mdf, 1 MB minimum)|
-|**MAXSIZE**|❌|Taille maximale (défaut: croissance jusqu'à saturation)<br>Limites: 16 TB (données), 2 TB (journal)|
-|**FILEGROWTH**|❌|Pas d'accroissement (défaut: 64 MB ou %)<br>0 = pas de croissance automatique|
+|**NAME**|OUI|Nom logique du fichier (utilisé en T-SQL)|
+|**FILENAME**|OUI|Chemin et nom physique sur disque|
+|**SIZE**|Non|Taille initiale (défaut: 8 MB pour .mdf, 1 MB minimum)|
+|**MAXSIZE**|Non|Taille maximale (défaut: croissance jusqu'à saturation), Limites: 16 TB (données), 2 TB (journal)|
+|**FILEGROWTH**|Non|Pas d'accroissement (défaut: 64 MB ou %), 0 = pas de croissance automatique|
 
-**Exemple de syntaxe minimale:**
+**Syntaxe minimale:**
 
 ```sql
 CREATE DATABASE MaBase;
@@ -572,21 +436,18 @@ LOG ON
 
 #### Options d'Accroissement
 
-**1. AUTOEXTEND ON (Accroissement dynamique)**
+**AUTOEXTEND ON (Accroissement dynamique)**
 
 - Croissance automatique selon FILEGROWTH
 - Pas d'intervention manuelle
-- ⚠️ Risque de saturation disque
+- Risque de saturation disque
 
-**2. AUTOEXTEND OFF (Accroissement manuel)**
+**AUTOEXTEND OFF (Accroissement manuel)**
 
 - Nécessite intervention administrateur
 - Contrôle total sur la taille
-- Planification de la croissance
 
 #### Ajout de Fichiers
-
-**Syntaxe:**
 
 ```sql
 ALTER DATABASE NomBase
@@ -603,11 +464,7 @@ ADD FILE
 **DBCC SHRINKDATABASE:**
 
 - Compacte tous les fichiers de la base
-- Extensions regroupées en début de fichier
 - Ne peut pas descendre sous la taille initiale
-- Compactage différé pour les journaux
-
-**Syntaxe:**
 
 ```sql
 DBCC SHRINKDATABASE (NomBase, 10);  -- 10% d'espace libre souhaité
@@ -616,9 +473,6 @@ DBCC SHRINKDATABASE (NomBase, 10);  -- 10% d'espace libre souhaité
 **DBCC SHRINKFILE:**
 
 - Compacte un fichier spécifique
-- Option EMPTYFILE: vide le fichier (préparation suppression)
-
-**Syntaxe:**
 
 ```sql
 DBCC SHRINKFILE (NomLogiqueFichier, 500);  -- Taille cible en MB
@@ -630,7 +484,7 @@ DBCC SHRINKFILE (NomLogiqueFichier, 500);  -- Taille cible en MB
 
 |Option|Valeurs|Description|
 |---|---|---|
-|**AUTO_SHRINK**|ON / OFF|Compactage auto si >25% espace libre<br>⚠️ Déconseillé en production|
+|**AUTO_SHRINK**|ON / OFF|Compactage auto si >25% espace libre (Déconseillé en production)|
 |**READ_ONLY**|-|Mode lecture seule|
 |**READ_WRITE**|-|Mode lecture/écriture (défaut)|
 |**SINGLE_USER**|-|Un seul utilisateur autorisé|
@@ -642,29 +496,23 @@ DBCC SHRINKFILE (NomLogiqueFichier, 500);  -- Taille cible en MB
 **Modification d'option:**
 
 ```sql
-ALTER DATABASE NomBase
-SET SINGLE_USER;
+ALTER DATABASE NomBase SET SINGLE_USER;
 ```
 
 #### Consultation des Options
 
-**Fonction DATABASEPROPERTYEX:**
-
 ```sql
+-- Fonction DATABASEPROPERTYEX
 SELECT DATABASEPROPERTYEX('NomBase', 'NomOption');
-```
 
-**Vue sys.databases:**
-
-```sql
+-- Vue sys.databases
 SELECT name, collation_name, user_access_desc, state_desc
 FROM sys.databases;
+
+-- Procédures stockées
+EXEC sp_helpdb [NomBase];
+EXEC sp_spaceused;
 ```
-
-**Procédures stockées:**
-
-- `sp_helpdb [NomBase]`
-- `sp_spaceused`
 
 ### 3.8 Groupes de Fichiers (Filegroups)
 
@@ -676,10 +524,10 @@ FROM sys.databases;
 
 **Avantages:**
 
-- 📖 Meilleure lisibilité
-- 🔒 Sécurité simplifiée
-- 🚀 Performances optimisées
-- 💾 Sauvegardes sélectives
+- Meilleure lisibilité
+- Sécurité simplifiée
+- Performances optimisées
+- Sauvegardes sélectives
 
 #### Groupe PRIMARY
 
@@ -687,12 +535,11 @@ FROM sys.databases;
 - Contient obligatoirement les tables système
 - Fichier primaire (.mdf) toujours dans PRIMARY
 
-#### Création de Groupe de Fichiers
+#### Création et Utilisation
 
 ```sql
 -- Créer le groupe
-ALTER DATABASE MaBase
-ADD FILEGROUP GroupeIndex;
+ALTER DATABASE MaBase ADD FILEGROUP GroupeIndex;
 
 -- Ajouter des fichiers au groupe
 ALTER DATABASE MaBase
@@ -703,25 +550,14 @@ ADD FILE
     SIZE = 500MB
 )
 TO FILEGROUP GroupeIndex;
-```
 
-#### Utilisation
-
-**Lors de la création d'objet:**
-
-```sql
+-- Créer objet dans le groupe
 CREATE TABLE MaTable
 (
     col1 INT,
     col2 VARCHAR(50)
 )
-ON GroupeIndex;  -- Spécifier le groupe de fichiers
-```
-
-**Accès aux objets hors schéma par défaut:**
-
-```
-nomSchema.nomObjet
+ON GroupeIndex;
 ```
 
 ### 3.9 Partitionnement de Tables
@@ -732,23 +568,12 @@ nomSchema.nomObjet
 
 **Bénéfices:**
 
-- ⚡ Meilleures performances sur gros volumes
-- 🔧 Maintenance facilitée
-- 💾 Sauvegardes sélectives
-- 🚀 Requêtes parallélisées
-
-**Principe:**
-
-```
-Grande Table (millions de lignes)
-        ↓
-Partition 1  |  Partition 2  |  Partition 3
-(Fichier 1)  |  (Fichier 2)  |  (Fichier 3)
-```
+- Meilleures performances sur gros volumes
+- Maintenance facilitée
+- Sauvegardes sélectives
+- Requêtes parallélisées
 
 #### Étape 1: Fonction de Partitionnement
-
-**Définit les plages de valeurs:**
 
 ```sql
 CREATE PARTITION FUNCTION pfClients (int)
@@ -769,18 +594,11 @@ AS RANGE LEFT FOR VALUES (10000, 20000, 30000);
 
 #### Étape 2: Schéma de Partitionnement
 
-**Associe les partitions aux groupes de fichiers:**
-
 ```sql
 CREATE PARTITION SCHEME schemaClients
 AS PARTITION pfClients
 TO (groupe1, groupe2, groupe3, groupe4);
 ```
-
-**Option NEXT USED:**
-
-- Groupe de fichiers supplémentaire pour futures partitions
-- Marqué comme prochain à utiliser
 
 #### Étape 3: Création de Table Partitionnée
 
@@ -803,31 +621,27 @@ ON schemaClients (numero);  -- Colonne de partitionnement
 
 ### 3.10 Suppression de Base de Données
 
-**Syntaxe:**
-
 ```sql
 DROP DATABASE NomBase;
 ```
 
 **Limitations:**
 
-- ❌ Base en cours d'utilisation
-- ❌ Base ouverte (même en lecture)
-- ❌ Base participant à la réplication
+- Base en cours d'utilisation
+- Base ouverte (même en lecture)
+- Base participant à la réplication
 
 **Conséquences:**
 
 - Suppression de tous les fichiers
 - Suppression de toutes les données
-- ⚠️ **IRRÉVERSIBLE** (sauf restauration sauvegarde)
+- **IRRÉVERSIBLE** (sauf restauration sauvegarde)
 
-**Bonne pratique:**
-
-- 💾 Sauvegarder la base MASTER après suppression de bases utilisateurs
+**Bonne pratique:** Sauvegarder la base MASTER après suppression de bases utilisateurs
 
 ---
 
-## 🔐 CHAPITRE 4: Sécurité des Accès
+## CHAPITRE 4: Sécurité des Accès
 
 ### 4.1 Concepts Fondamentaux
 
@@ -848,13 +662,7 @@ DROP DATABASE NomBase;
 - Accordées aux entités pour travailler avec les sécurisables
 - Héritage hiérarchique
 
-**Exemple d'héritage:**
-
-```
-Autorisation SELECT sur schéma
-    ↓
-Applicable à TOUTES les tables du schéma
-```
+**Exemple d'héritage:** Autorisation SELECT sur schéma → applicable à TOUTES les tables du schéma
 
 #### Types de Rôles
 
@@ -867,27 +675,14 @@ Applicable à TOUTES les tables du schéma
 ### 4.2 Architecture de Sécurité
 
 ```
-┌───────────────────────────────────────────────┐
-│              NIVEAU SERVEUR                    │
-│  ┌──────────────┐    ┌──────────────┐        │
-│  │  Connexion   │───→│ Rôle Serveur │        │
-│  │   (Login)    │    │   (sysadmin) │        │
-│  └──────────────┘    └──────────────┘        │
-│         │                                      │
-│         ↓ (Mapping)                           │
-├───────────────────────────────────────────────┤
-│           NIVEAU BASE DE DONNÉES              │
-│  ┌──────────────┐    ┌──────────────┐        │
-│  │ Utilisateur  │───→│  Rôle de BD  │        │
-│  │     (User)   │    │  (db_owner)  │        │
-│  └──────────────┘    └──────────────┘        │
-│         │                 │                   │
-│         ↓                 ↓                   │
-│    ┌─────────────────────────┐               │
-│    │   Autorisations sur     │               │
-│    │  Objets (Tables, Vues)  │               │
-│    └─────────────────────────┘               │
-└───────────────────────────────────────────────┘
+NIVEAU SERVEUR
+  Connexion (Login) → Rôle Serveur (sysadmin)
+      ↓ (Mapping)
+      
+NIVEAU BASE DE DONNÉES
+  Utilisateur (User) → Rôle de BD (db_owner)
+      ↓
+  Autorisations sur Objets (Tables, Vues)
 ```
 
 ### 4.3 Modes d'Authentification
@@ -896,11 +691,11 @@ Applicable à TOUTES les tables du schéma
 
 **Caractéristiques:**
 
-- ✅ Authentification par Windows
-- ✅ Connexion mappée avec compte Windows
-- ✅ Mode par défaut
-- ✅ Single Sign-On (SSO)
-- ✅ Politique de mots de passe Windows
+- Authentification par Windows
+- Connexion mappée avec compte Windows
+- Mode par défaut
+- Single Sign-On (SSO)
+- Politique de mots de passe Windows
 
 **Avantages:**
 
@@ -912,7 +707,7 @@ Applicable à TOUTES les tables du schéma
 
 **Caractéristiques:**
 
-- Authentification Windows **OU** SQL Server
+- Authentification Windows OU SQL Server
 - Connexions SQL avec login/password
 - Nécessaire pour clients non-Microsoft
 
@@ -926,7 +721,7 @@ Applicable à TOUTES les tables du schéma
 
 |Critère|Windows|Mixte|
 |---|---|---|
-|**Sécurité**|⭐⭐⭐ Excellente|⭐⭐ Bonne|
+|**Sécurité**|Excellente|Bonne|
 |**Gestion**|Centralisée|Double gestion|
 |**Compatibilité**|Windows uniquement|Tous clients|
 |**SSO**|Oui|Non (pour SQL logins)|
@@ -977,7 +772,6 @@ CREATE CREDENTIAL MonCredential
 WITH IDENTITY = 'DOMAINE\CompteWindows',
      SECRET = 'MotDePasse';
 
--- Puis lier à la connexion
 CREATE LOGIN CompteSQL
 WITH PASSWORD = 'Pass123',
      CREDENTIAL = MonCredential;
@@ -995,10 +789,8 @@ ALTER LOGIN Pierre ENABLE;
 **Consultation:**
 
 ```sql
--- Liste des connexions et BD par défaut
-SELECT name AS 'Nom',
-       loginName AS 'Connexion',
-       dbname AS 'Base par défaut'
+-- Liste des connexions
+SELECT name, loginName, dbname
 FROM sys.syslogins;
 
 -- Connexions actives
@@ -1013,15 +805,7 @@ EXEC sp_who;
 
 - Utilisateur membre de plusieurs groupes
 - Un groupe a accès, mais pas cet utilisateur spécifique
-- DENY prend le dessus
-
-**Exemple:**
-
-```
-Groupe_Dev → Connexion accordée
-Utilisateur Jean (membre Groupe_Dev)
-DENY connexion à Jean → Jean ne peut pas se connecter
-```
+- DENY prend le dessus sur GRANT
 
 ### 4.5 Utilisateurs de Base de Données
 
@@ -1034,90 +818,64 @@ DENY connexion à Jean → Jean ne peut pas se connecter
 - Reçoivent les droits sur les objets
 - Stockés dans `sys.database_principals`
 
-**Sans utilisateur de BD:** Un utilisateur avec connexion mais sans utilisateur BD ne peut que:
-
-- Consulter tables système
-- Accéder aux bases avec compte `guest` actif
-- Exécuter instructions sans autorisation (PRINT)
+**Sans utilisateur de BD:** Accès limité aux tables système et bases avec compte `guest` actif
 
 #### Utilisateurs Particuliers
 
 **1. dbo (Database Owner)**
 
-- ✅ Présent dans toutes les bases
-- ✅ Membres de `sysadmin` mappés à dbo
-- ✅ Compte `sa` mappé à dbo
-- ❌ Ne peut être supprimé
+- Présent dans toutes les bases
+- Membres de `sysadmin` mappés à dbo
+- Compte `sa` mappé à dbo
+- Ne peut être supprimé
 - Objets créés par sysadmin → propriétaire = dbo
 
 **2. guest**
 
-- ✅ Présent dans toutes les bases
-- ❌ Désactivé par défaut
+- Présent dans toutes les bases
+- Désactivé par défaut
 - Permet accès aux connexions sans utilisateur de BD
 
 **Activation/Désactivation de guest:**
 
 ```sql
--- Activer
-GRANT CONNECT TO guest;
-
--- Désactiver
-REVOKE CONNECT FROM guest;
+GRANT CONNECT TO guest;   -- Activer
+REVOKE CONNECT FROM guest; -- Désactiver
 ```
 
-**3. sys** et **INFORMATION_SCHEMA**
+**3. sys et INFORMATION_SCHEMA**
 
 - Utilisateurs système
 - Non rattachés à une connexion
 
 #### Création d'Utilisateur
 
-**Syntaxe:**
-
 ```sql
 CREATE USER PierreUser
 FOR LOGIN Pierre
 WITH DEFAULT_SCHEMA = dbo;
-```
 
-**Modification:**
-
-```sql
 ALTER USER PierreUser
 WITH NAME = NouveauNom,
      DEFAULT_SCHEMA = VentesSchema;
-```
 
-**Suppression:**
-
-```sql
 DROP USER PierreUser;
 ```
 
 #### Consultation
 
-**Liste des utilisateurs:**
-
 ```sql
+-- Liste des utilisateurs
 SELECT * FROM sys.database_principals;
-```
 
-**Connexions et utilisateurs associés:**
-
-```sql
+-- Connexions et utilisateurs associés
 SELECT s.name AS 'Connexion',
        p.name AS 'Utilisateur'
 FROM sys.database_principals p
-INNER JOIN sys.server_principals s
-    ON s.sid = p.sid;
-```
+INNER JOIN sys.server_principals s ON s.sid = p.sid;
 
-**Utilisateurs connectés:**
-
-```sql
+-- Utilisateurs connectés
 EXEC sp_who;
--- Affiche: loginname, hostname, dbname
 ```
 
 ### 4.6 Gestion des Schémas
@@ -1130,22 +888,16 @@ EXEC sp_who;
 
 **Avantages:**
 
-- 📖 Meilleure lisibilité
-- 🔒 Sécurité simplifiée
-- 👥 Partage facilité entre utilisateurs
-- 🎯 Gestion des privilèges par schéma
+- Meilleure lisibilité
+- Sécurité simplifiée
+- Partage facilité entre utilisateurs
+- Gestion des privilèges par schéma
 
 #### Utilisation
 
-**Propriétaire du schéma:**
-
-- Gère les droits du schéma
-- Gère les droits des objets
-- Peut transférer la gestion
-
 **Accès aux objets:**
 
-```
+```sql
 -- Objet dans schéma par défaut
 SELECT * FROM MaTable;
 
@@ -1155,42 +907,23 @@ SELECT * FROM AutreSchema.MaTable;
 
 #### Gestion des Schémas
 
-**Création:**
-
 ```sql
-CREATE SCHEMA Ventes
-AUTHORIZATION Pierre;
-```
+-- Création
+CREATE SCHEMA Ventes AUTHORIZATION Pierre;
 
-**Création avec objets:**
-
-```sql
-CREATE SCHEMA Ventes
-AUTHORIZATION Pierre
+-- Création avec objets
+CREATE SCHEMA Ventes AUTHORIZATION Pierre
     CREATE TABLE Clients (...)
     CREATE VIEW VueClients AS ...;
-```
 
-**Transfert d'objet:**
+-- Transfert d'objet
+ALTER SCHEMA NouveauSchema TRANSFER Ancien.ObjetTable;
 
-```sql
-ALTER SCHEMA NouveauSchema
-TRANSFER Ancien.ObjetTable;
-```
-
-**Suppression:**
-
-```sql
+-- Suppression (doit être vide)
 DROP SCHEMA NomSchema;
--- ⚠️ Le schéma doit être vide
-```
 
-**Consultation:**
-
-```sql
-SELECT *
-FROM sys.schemas;
--- Colonnes: name, schema_id, principal_id
+-- Consultation
+SELECT * FROM sys.schemas;
 ```
 
 ### 4.7 Gestion des Droits
@@ -1228,42 +961,29 @@ FROM sys.schemas;
 
 ```sql
 -- Privilège d'instruction
-GRANT CREATE TABLE
-TO Pierre
-WITH GRANT OPTION;
+GRANT CREATE TABLE TO Pierre WITH GRANT OPTION;
 
 -- Privilège sur objet
-GRANT SELECT, INSERT
-ON schema.Table
-TO Pierre
-WITH GRANT OPTION;
+GRANT SELECT, INSERT ON schema.Table TO Pierre WITH GRANT OPTION;
 ```
 
 **REVOKE (Retirer):**
 
 ```sql
 -- Retirer privilège simple
-REVOKE CREATE TABLE
-FROM Pierre;
+REVOKE CREATE TABLE FROM Pierre;
 
 -- Retirer WITH GRANT OPTION uniquement
-REVOKE GRANT OPTION FOR CREATE TABLE
-FROM Pierre;
+REVOKE GRANT OPTION FOR CREATE TABLE FROM Pierre;
 
 -- Retirer en cascade
-REVOKE SELECT
-ON schema.Table
-FROM Pierre
-CASCADE;
+REVOKE SELECT ON schema.Table FROM Pierre CASCADE;
 ```
 
 **DENY (Interdire):**
 
 ```sql
-DENY DELETE
-ON schema.Table
-TO Pierre
-CASCADE;
+DENY DELETE ON schema.Table TO Pierre CASCADE;
 ```
 
 #### Hiérarchie des Autorisations
@@ -1283,66 +1003,24 @@ Pas d'autorisation (le plus faible)
 **Permet à l'utilisateur:**
 
 - Recevoir le privilège
-- **Transmettre** le privilège à d'autres
+- Transmettre le privilège à d'autres
 
 **Exemple:**
 
 ```sql
--- Jean peut créer des tables ET donner ce droit à d'autres
-GRANT CREATE TABLE
-TO Jean
-WITH GRANT OPTION;
-
--- Jean accorde ensuite
+GRANT CREATE TABLE TO Jean WITH GRANT OPTION;
+-- Jean peut ensuite :
 GRANT CREATE TABLE TO Marie;
 ```
 
 **Retrait en cascade:**
 
 ```sql
-REVOKE CREATE TABLE
-FROM Jean
-CASCADE;
+REVOKE CREATE TABLE FROM Jean CASCADE;
 -- Retire aussi le privilège à Marie
 ```
 
-#### Autorisations au Niveau Base de Données
-
-**Portée:** Actions sur l'ensemble de la base
-
-**Exemples:**
-
-```sql
--- Accorder
-GRANT CREATE PROCEDURE
-TO Pierre
-WITH GRANT OPTION;
-
--- Interdire
-DENY CREATE TABLE
-TO Marie;
-```
-
-#### Autorisations au Niveau Serveur
-
-**Prérequis:** Être sur la base MASTER
-
-**Exemples:**
-
-```sql
-USE master;
-GRANT ALTER ANY LOGIN
-TO AdminSecurite;
-```
-
 #### Consultation des Privilèges
-
-**Vues système:**
-
-- `sys.database_permissions`: Autorisations
-- `sys.database_principals`: Comptes de sécurité
-
-**Requête complète:**
 
 ```sql
 SELECT p.name AS 'Utilisateur',
@@ -1362,8 +1040,8 @@ INNER JOIN sys.database_permissions perm
 
 **Types:**
 
-1. **Rôles fixes** (prédéfinis)
-2. **Rôles utilisateur** (personnalisés)
+1. Rôles fixes (prédéfinis)
+2. Rôles utilisateur (personnalisés)
 
 **Niveaux:**
 
@@ -1373,29 +1051,12 @@ INNER JOIN sys.database_permissions perm
 
 #### Cumul de Privilèges
 
-**Un utilisateur dispose de tous les privilèges:**
+Un utilisateur dispose de tous les privilèges :
 
-- ✅ Accordés directement à la connexion
-- ✅ Via rôles de serveur
-- ✅ Via rôles de base de données
-- ✅ Accordés directement à l'utilisateur de BD
-
-```
-┌─────────────────────────────────────┐
-│         NIVEAU SERVEUR              │
-│  Connexion  ←───  Rôle Serveur      │
-│      │          (Privilèges)         │
-└──────│──────────────────────────────┘
-       │
-       ↓ (mapping)
-┌─────────────────────────────────────┐
-│      NIVEAU BASE DE DONNÉES         │
-│  Utilisateur  ←───  Rôle BD         │
-│      │          (Privilèges)         │
-│      │                               │
-│      └────→  Privilèges directs      │
-└─────────────────────────────────────┘
-```
+- Accordés directement à la connexion
+- Via rôles de serveur
+- Via rôles de base de données
+- Accordés directement à l'utilisateur de BD
 
 ### 4.9 Rôles de Serveur
 
@@ -1403,45 +1064,30 @@ INNER JOIN sys.database_permissions perm
 
 |Rôle|Description|
 |---|---|
-|**sysadmin**|⭐ Super administrateur<br>Tous pouvoirs sur l'instance|
+|**sysadmin**|Super administrateur - Tous pouvoirs sur l'instance|
 |**serveradmin**|Configuration paramètres serveur|
-|**setupadmin**|Gestion serveurs liés<br>Procédures stockées système|
-|**securityadmin**|Gestion connexions<br>⚠️ Peut élever ses privilèges|
-|**processadmin**|Gestion des processus SQL Server<br>Terminer processus|
+|**setupadmin**|Gestion serveurs liés, procédures stockées système|
+|**securityadmin**|Gestion connexions (peut élever ses privilèges)|
+|**processadmin**|Gestion des processus SQL Server, terminer processus|
 |**dbcreator**|Créer, modifier, supprimer bases de données|
 |**diskadmin**|Gestion fichiers sur disque|
 |**bulkadmin**|Exécution BULK INSERT|
-|**public**|Rôle par défaut de toute connexion<br>Lister les bases|
+|**public**|Rôle par défaut de toute connexion, lister les bases|
 
 #### Gestion des Rôles Serveur
 
-**Création (rôle personnalisé):**
-
 ```sql
+-- Création (rôle personnalisé)
 CREATE SERVER ROLE MonRoleServeur;
-```
 
-**Attribution:**
+-- Attribution
+ALTER SERVER ROLE sysadmin ADD MEMBER Pierre;
 
-```sql
-ALTER SERVER ROLE sysadmin
-ADD MEMBER Pierre;
-```
+-- Retrait
+ALTER SERVER ROLE sysadmin DROP MEMBER Pierre;
 
-**Retrait:**
-
-```sql
-ALTER SERVER ROLE sysadmin
-DROP MEMBER Pierre;
-```
-
-**Consultation:**
-
-```sql
--- Liste des rôles
+-- Consultation
 EXEC sp_helpsrvrole;
-
--- Membres d'un rôle
 EXEC sp_helpsrvrolemember;
 ```
 
@@ -1451,42 +1097,29 @@ EXEC sp_helpsrvrolemember;
 
 |Rôle|Droits|
 |---|---|
-|**db_owner**|⭐ Propriétaire<br>Tous pouvoirs sur la base|
+|**db_owner**|Propriétaire - Tous pouvoirs sur la base|
 |**db_accessadmin**|Ajouter/supprimer utilisateurs|
 |**db_datareader**|SELECT sur toutes les tables|
 |**db_datawriter**|INSERT, UPDATE, DELETE sur toutes les tables|
 |**db_ddladmin**|Ordres DDL (CREATE, ALTER, DROP)|
 |**db_securityadmin**|Gérer rôles et autorisations|
 |**db_backupoperator**|Sauvegardes de la base|
-|**db_denydatareader**|❌ Interdire SELECT sur toute la base|
-|**db_denydatawriter**|❌ Interdire INSERT, UPDATE, DELETE|
+|**db_denydatareader**|Interdire SELECT sur toute la base|
+|**db_denydatawriter**|Interdire INSERT, UPDATE, DELETE|
 
 #### Gestion des Rôles de BD
 
-**Création:**
-
 ```sql
-CREATE ROLE RoleVentes
-AUTHORIZATION Pierre;
-```
+-- Création
+CREATE ROLE RoleVentes AUTHORIZATION Pierre;
 
-**Attribution:**
+-- Attribution
+ALTER ROLE db_datareader ADD MEMBER Jean;
 
-```sql
-ALTER ROLE db_datareader
-ADD MEMBER Jean;
-```
+-- Retrait
+ALTER ROLE db_datareader DROP MEMBER Jean;
 
-**Retrait:**
-
-```sql
-ALTER ROLE db_datareader
-DROP MEMBER Jean;
-```
-
-**Suppression:**
-
-```sql
+-- Suppression
 DROP ROLE RoleVentes;
 ```
 
@@ -1496,437 +1129,229 @@ DROP ROLE RoleVentes;
 
 **Spécificités:**
 
-- ✅ Définis au niveau base de données
-- ❌ Pas d'utilisateurs membres
-- 🔐 Protégés par mot de passe
-- 🎯 Droits nécessaires pour une application
-- ⚡ Doivent être **activés** par un utilisateur
-- 🔄 Prennent le dessus sur les privilèges utilisateur
-
-**Cas d'usage:** Application client-serveur nécessitant des droits spécifiques, indépendamment de l'utilisateur connecté.
+- Définis au niveau base de données
+- Pas d'utilisateurs membres
+- Protégés par mot de passe
+- Droits nécessaires pour une application
+- Doivent être **activés** par un utilisateur
+- Prennent le dessus sur les privilèges utilisateur
 
 #### Gestion
 
-**Création:**
-
 ```sql
+-- Création
 CREATE APPLICATION ROLE RoleApp
 WITH PASSWORD = 'M0tDeP@sse!',
      DEFAULT_SCHEMA = dbo;
-```
 
-**Modification:**
-
-```sql
+-- Modification
 ALTER APPLICATION ROLE RoleApp
 WITH PASSWORD = 'Nouv3@uP@ss',
      DEFAULT_SCHEMA = Ventes;
-```
 
-**Suppression:**
-
-```sql
+-- Suppression
 DROP APPLICATION ROLE RoleApp;
-```
 
-**Activation:**
-
-```sql
-EXEC sp_setapprole 'RoleApp',
-     'M0tDeP@sse!';
+-- Activation
+EXEC sp_setapprole 'RoleApp', 'M0tDeP@sse!';
 ```
 
 **Important:** Une fois activé, le rôle d'application remplace tous les privilèges de l'utilisateur pour la session en cours.
 
 ---
 
-## 📖 GLOSSAIRE
+## POINTS CRITIQUES POUR L'EXAMEN
 
-|Terme|Définition|
-|---|---|
-|**ACID**|Atomicité, Cohérence, Isolation, Durabilité - Propriétés des transactions|
-|**CAL**|Client Access License - Licence d'accès client|
-|**Connexion (Login)**|Compte d'accès au niveau serveur|
-|**Credential**|Compte Windows lié à une connexion SQL pour accès ressources externes|
-|**DBCC**|Database Console Commands - Commandes maintenance et diagnostic|
-|**Extension**|Ensemble de 8 pages contiguës (64 Ko)|
-|**Filegroup**|Groupe de fichiers logiques pour organisation du stockage|
-|**Instance**|Installation indépendante de SQL Server sur un serveur|
-|**Journal (Log)**|Fichier .ldf enregistrant toutes les modifications|
-|**OLAP**|Online Analytical Processing - Base décisionnelle|
-|**OLTP**|Online Transactional Processing - Base transactionnelle|
-|**Page**|Unité de stockage de 8 Ko|
-|**Partition**|Division d'une grande table en plusieurs sous-ensembles|
-|**Rôle**|Regroupement de privilèges|
-|**Schéma**|Ensemble logique d'objets dans une base|
-|**Sécurisable**|Objet sur lequel des autorisations peuvent être accordées|
-|**SGBDR**|Système de Gestion de Base de Données Relationnelles|
-|**SMO**|SQL Server Management Objects - API d'administration|
-|**SSMS**|SQL Server Management Studio - Principal outil graphique|
-|**Transaction**|Ensemble indivisible d'opérations (tout ou rien)|
-|**T-SQL**|Transact-SQL - Extension Microsoft du langage SQL|
-|**Utilisateur (User)**|Compte d'accès au niveau base de données|
-|**WAL**|Write-Ahead Logging - Écriture journal avant données|
+### Concepts Fondamentaux
 
----
+#### À Maîtriser Absolument
 
-## ✅ BONNES PRATIQUES
+**Éditions SQL Server:**
 
-### Gestion des Bases de Données
+- Enterprise: Édition complète, tous composants
+- Standard: PME, fonctionnalités essentielles
+- Express: GRATUITE, 10 Go max, 1 Go RAM
+- Developer: Comme Enterprise, DÉVELOPPEMENT uniquement
 
-#### Fichiers et Stockage
+**Bases Système:**
 
-✅ **Séparer les fichiers:**
+- **MASTER**: Configuration serveur (CRITIQUE - à sauvegarder)
+- **MODEL**: Template nouvelles bases
+- **TEMPDB**: Temporaire (recréée au démarrage)
+- **MSDB**: SQL Agent (tâches planifiées)
+- **RESOURCE**: Objets système
 
-- Fichiers de données (.mdf, .ndf) sur disque rapide
-- Fichiers journaux (.ldf) sur disque séparé
-- TempDB sur disque dédié
+**Types de Bases:**
 
-✅ **Dimensionnement initial:**
+- **OLTP**: Transactionnel, opérations quotidiennes
+- **OLAP**: Décisionnel, analyse, Data Warehouse
 
-- Définir SIZE appropriée (éviter extensions fréquentes)
-- FILEGROWTH: Valeur fixe (MB) plutôt que % pour gros fichiers
-- MAXSIZE: Limiter pour éviter saturation disque
+**Structure Physique:**
 
-✅ **Groupes de fichiers:**
+- **Page**: 8 Ko (unité de base)
+- **Extension**: 64 Ko (8 pages)
+- **.mdf**: Fichier primaire données
+- **.ndf**: Fichiers secondaires données
+- **.ldf**: Fichier journal
 
-- PRIMARY: Tables système uniquement
-- Groupe séparé pour données utilisateur
-- Groupe séparé pour index
-- Groupe séparé pour objets volumineux (BLOB)
+**Transactions ACID:**
 
-❌ **À éviter:**
+- **Atomicité**: Tout ou rien
+- **Cohérence**: État cohérent
+- **Isolation**: Pas d'interférence
+- **Durabilité**: Permanent après COMMIT
 
-- AUTO_SHRINK = ON (impact performances)
-- FILEGROWTH trop petit (fragmentations multiples)
-- Fichiers sur même disque que système d'exploitation
+**Commandes:**
 
-#### Transactions
+- `BEGIN TRAN` → `SAVE TRAN` → `ROLLBACK` / `COMMIT`
 
-✅ **Utiliser BEGIN TRAN explicitement** pour opérations critiques ✅ **SAVE TRAN** pour points de retour partiels ✅ **Transactions courtes** (minimiser verrouillage) ✅ **Gérer les erreurs** avec TRY-CATCH
+**Modes de Licence:**
 
-❌ **À éviter:**
-
-- Transactions longues (blocages utilisateurs)
-- Oublier COMMIT (transaction ouverte)
-- Nested transactions non contrôlées
+- **Par Cœur**: Utilisateurs illimités
+- **Par CAL**: Nombre fixe d'utilisateurs
+- Enterprise: Cœur uniquement
+- Standard: Cœur OU CAL
 
 ### Sécurité
+
+#### Architecture
+
+```
+SERVEUR
+  Connexion (Login) → Rôle Serveur
+      ↓
+BASE DE DONNÉES
+  Utilisateur (User) → Rôle BD
+      ↓
+  Autorisations Objets
+```
 
 #### Authentification
 
-✅ **Privilégier l'authentification Windows:**
+**Windows** (Recommandé):
 
-- Gestion centralisée
-- Politique de mots de passe robuste
-- Audit Windows
+- SSO, gestion centralisée
+- Politique Windows
 
-✅ **Mode mixte uniquement si nécessaire:**
+**Mixte**:
 
-- Clients non-Microsoft
-- Applications spécifiques
+- Windows OU SQL Server
+- Nécessaire pour non-Microsoft
 
-✅ **Politique de mots de passe:**
+#### Hiérarchie Autorisations
 
-```sql
-CHECK_EXPIRATION = ON
-CHECK_POLICY = ON
+```
+DENY (prioritaire)
+  ↓
+GRANT
+  ↓
+Rien
 ```
 
-#### Gestion des Privilèges
+**Règle:** DENY > GRANT toujours
 
-✅ **Principe du moindre privilège:**
-
-- Accorder uniquement les droits nécessaires
-- Utiliser des rôles personnalisés
-- Éviter sysadmin/db_owner sauf nécessaire
-
-✅ **Utiliser les rôles:**
-
-- Créer des rôles métier
-- Affecter utilisateurs aux rôles
-- Gérer privilèges au niveau rôle
-
-✅ **Schémas pour organisation:**
-
-- Regrouper objets par fonctionnalité
-- Gérer droits au niveau schéma
-- Séparation logique des données
-
-❌ **À éviter:**
-
-- Compte `sa` pour applications
-- WITH GRANT OPTION à outrance
-- Utilisateur `guest` activé
-- Privilèges directs sur objets (préférer rôles)
-
-#### Connexions et Utilisateurs
-
-✅ **Gestion rigoureuse:**
-
-- Désactiver (DISABLE) plutôt que supprimer
-- Révision périodique des connexions
-- Documentation des rôles et privilèges
-
-✅ **Base de données par défaut:**
-
-- Définir pour chaque connexion
-- Mais ne donne PAS de droits automatiques
-
-✅ **DENY pour exceptions:**
-
-- Utilisateur dans groupe autorisé mais doit être bloqué
-- DENY prioritaire sur GRANT
-
-### Maintenance
-
-#### Sauvegardes
-
-✅ **Stratégie de sauvegarde:**
-
-- Sauvegarder MASTER après modifications serveur
-- Sauvegardes complètes régulières
-- Sauvegardes différentielles entre complètes
-- Sauvegardes journaux (mode FULL recovery)
-
-✅ **Tester les restaurations:**
-
-- Vérifier régulièrement
-- Documenter procédures
-
-#### Monitoring
-
-✅ **Surveillance quotidienne:**
-
-- Espace disque disponible
-- Taille des fichiers journaux
-- Sessions actives (sp_who2)
-- Journal des événements
-- Tâches planifiées
-
-✅ **Statistiques:**
-
-- AUTO_CREATE_STATISTICS = ON
-- AUTO_UPDATE_STATISTICS = ON
-- MAJ manuelle si nécessaire
-
-### Performance
-
-#### Optimisation Tables
-
-✅ **Partitionnement pour grandes tables:**
-
-- Tables > plusieurs millions de lignes
-- Requêtes ciblant périodes spécifiques
-- Maintenance par partition
-
-✅ **Index appropriés:**
-
-- Groupe de fichiers séparé pour index
-- Reconstruction régulière (fragmentation)
-
-✅ **Typage approprié:**
-
-- Pas de VARCHAR(MAX) si taille connue
-- Types appropriés (éviter conversions)
-
-#### Configuration
-
-✅ **Options de BD adaptées:**
-
-- READ_WRITE pour bases production
-- READ_ONLY pour bases archives/reporting
-- SINGLE_USER pour maintenance uniquement
-
-✅ **Ressources serveur:**
-
-- Mémoire suffisante (éviter swapping)
-- Processeurs exploités (parallélisme)
-- Disques rapides (SSD pour TempDB)
-
-### Administration
-
-#### Documentation
-
-✅ **Documenter:**
-
-- Architecture des bases
-- Schémas de partitionnement
-- Rôles et privilèges
-- Procédures de sauvegarde/restauration
-- Procédures d'urgence
-
-✅ **Utiliser les outils:**
-
-- SSMS pour gestion graphique
-- T-SQL pour scripts reproductibles
-- Versionner les scripts (Git)
-
-#### Automatisation
-
-✅ **SQL Server Agent:**
-
-- Tâches de maintenance planifiées
-- Alertes sur événements critiques
-- Opérateurs notifiés
-
-✅ **Scripts T-SQL:**
-
-- Automatisation déploiements
-- Vérifications régulières
-- Génération rapports
-
----
-
-## 🎓 CONSEILS POUR L'EXAMEN / CERTIFICATION
-
-### Points Clés à Maîtriser
-
-#### Chapitre 1: Présentation
-
-- [ ] Différence OLTP vs OLAP
-- [ ] Composants SQL Server (services)
-- [ ] Bases système et leurs rôles
-- [ ] Vues et procédures système importantes
-
-#### Chapitre 2: Installation
-
-- [ ] Caractéristiques de chaque édition
-- [ ] Notion d'instance
-- [ ] Modes de licence (par cœur vs CAL)
-- [ ] SSMS et ses fonctionnalités
-
-#### Chapitre 3: Gestion BD
-
-- [ ] Structure physique (pages, extensions)
-- [ ] Transactions (BEGIN, COMMIT, ROLLBACK, SAVE)
-- [ ] Fichiers de données vs journaux
-- [ ] Groupes de fichiers
-- [ ] Partitionnement (fonction, schéma, table)
-- [ ] Options de configuration
-
-#### Chapitre 4: Sécurité
-
-- [ ] Modes d'authentification
-- [ ] Connexions vs Utilisateurs
-- [ ] Schémas
-- [ ] GRANT, REVOKE, DENY
-- [ ] Rôles serveur vs rôles BD
-- [ ] Hiérarchie autorisations
-- [ ] Rôles d'application
-
-### Pièges Fréquents
-
-❌ **Confusions courantes:**
-
-- Connexion ≠ Utilisateur
-- Base par défaut ≠ Droits sur la base
-- REVOKE ≠ DENY (DENY est plus fort)
-- Extension (64 Ko) ≠ Page (8 Ko)
-- OLTP ≠ OLAP
-
-❌ **Erreurs typiques:**
-
-- Oublier CASCADE avec REVOKE
-- Confondre rôles serveur et rôles BD
-- Ne pas distinguer .mdf et .ldf
-- Mélanger fonction et schéma de partitionnement
-
-### Méthode de Révision
-
-1. **Lire ce document** (vue d'ensemble)
-2. **Faire des fiches** par concept
-3. **Pratiquer en T-SQL** (syntaxes)
-4. **Créer des schémas** (architecture, sécurité)
-5. **Refaire les TDs/Labs** du cours
-6. **Questions types** examen blanc
-
-### Questions Types à Préparer
-
-**QCM fréquents:**
-
-- Quelle édition pour quel besoin ?
-- Combien de licences dans tel scénario ?
-- Quelle commande pour telle opération ?
-- Quel rôle pour tel privilège ?
-- Quelle base système contient quoi ?
-
-**Questions ouvertes:**
-
-- Expliquer le fonctionnement des transactions
-- Décrire l'architecture de sécurité
-- Procédure de partitionnement d'une table
-- Différence OLTP/OLAP avec exemples
-
-**Pratique:**
-
-- Créer une base avec groupes de fichiers
-- Mettre en place un partitionnement
-- Créer connexions, utilisateurs, rôles
-- Accorder/retirer privilèges
-
----
-
-## 📌 RÉSUMÉ ULTRA-CONDENSÉ (Mémo Rapide)
-
-### Éditions
-
-- **Enterprise**: Tout, gros volumes
-- **Standard**: PME, fonctionnalités essentielles
-- **Express**: GRATUIT, 10 Go max, 1 Go RAM
-- **Developer**: Comme Enterprise, DEV uniquement
-
-### Bases Système
-
-- **MASTER**: Configuration serveur ⚠️ CRITIQUE
-- **MODEL**: Template nouvelles bases
-- **TEMPDB**: Stockage temporaire (recréée)
-- **MSDB**: SQL Agent (tâches)
-- **RESOURCE**: Objets système
-
-### Fichiers
-
-- **.mdf**: Fichier primaire données
-- **.ndf**: Fichiers secondaires données
-- **.ldf**: Fichier journal (WAL)
-- Page: 8 Ko | Extension: 64 Ko (8 pages)
-
-### Transactions
-
-- BEGIN TRAN → SAVE TRAN → ROLLBACK/COMMIT
-- ACID: Atomicité, Cohérence, Isolation, Durabilité
-
-### Sécurité
-
-- **Connexion** (Login) → Serveur
-- **Utilisateur** (User) → Base de données
-- **Windows** > Mixte (sécurité)
-- DENY > GRANT > Rien
-
-### Rôles Serveur
+#### Rôles Serveur
 
 - **sysadmin**: Super admin
 - **dbcreator**: Créer bases
 - **securityadmin**: Gérer connexions
 
-### Rôles BD
+#### Rôles BD
 
 - **db_owner**: Propriétaire
 - **db_datareader**: SELECT toutes tables
 - **db_datawriter**: INSERT/UPDATE/DELETE toutes tables
 
-### Partitionnement
+#### Commandes
+
+```sql
+GRANT privilege TO user [WITH GRANT OPTION];
+REVOKE privilege FROM user [CASCADE];
+DENY privilege TO user [CASCADE];
+```
+
+### Gestion Bases de Données
+
+#### Groupes de Fichiers
+
+**PRIMARY**: Obligatoire, contient tables système
+
+**Personnalisés**: Organisation logique, performances, sauvegardes sélectives
+
+#### Partitionnement
+
+**3 Étapes:**
 
 1. Fonction de partitionnement (plages)
 2. Schéma de partitionnement (groupes fichiers)
-3. Table partitionnée (colonne partitionnement)
+3. Table partitionnée (colonne)
+
+**LEFT vs RIGHT:**
+
+- LEFT: Frontière dans partition inférieure
+- RIGHT: Frontière dans partition supérieure
+
+#### Schémas
+
+**Définition**: Ensemble logique d'objets
+
+**Avantages**:
+
+- Dissociation utilisateurs/objets
+- Sécurité simplifiée
+- Gestion privilèges par schéma
+
+### Pièges Fréquents
+
+**Confusions:**
+
+- Connexion ≠ Utilisateur
+- Base par défaut ≠ Droits
+- REVOKE ≠ DENY
+- Extension (64 Ko) ≠ Page (8 Ko)
+- OLTP ≠ OLAP
+
+**Erreurs:**
+
+- Oublier CASCADE avec REVOKE
+- Confondre rôles serveur et BD
+- .mdf vs .ldf
+- Fonction vs Schéma partitionnement
+
+### Mémo Rapide
+
+**Fichiers:**
+
+- .mdf: Primaire données
+- .ndf: Secondaire données
+- .ldf: Journal (WAL)
+
+**Transactions:**
+
+- BEGIN → SAVE → ROLLBACK/COMMIT
+- ACID: Atomicité, Cohérence, Isolation, Durabilité
+
+**Sécurité:**
+
+- Login (serveur) → User (BD)
+- Windows > Mixte
+- DENY > GRANT > Rien
+
+**Partitionnement:**
+
+1. CREATE PARTITION FUNCTION
+2. CREATE PARTITION SCHEME
+3. CREATE TABLE ON scheme(column)
+
+**Bases Système:**
+
+- MASTER: CRITIQUE
+- MODEL: Template
+- TEMPDB: Temporaire
+- MSDB: Agent
+- RESOURCE: Système
 
 ---
 
-**📅 Document généré pour révision examen/certification SQL Server**  
-**✍️ Basé sur les supports de cours N'SOUGAN Folly W.**  
-**📖 Version: Résumé Essentiels Théoriques**
-
----
-
-_Bon courage pour vos révisions ! 🚀_
+**Document préparé pour révision examen SQL Server**  
+**Basé sur supports de cours N'SOUGAN Folly W.**
