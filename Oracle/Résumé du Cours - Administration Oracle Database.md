@@ -4,7 +4,7 @@
 ---
 
 ## 1. Introduction à Oracle
-[]
+
 ### Points clés
 
 - **Oracle Corporation** : Premier SGBDR au monde (1979)
@@ -54,12 +54,12 @@ Base de données  : 1,5 Go
 
 ### Variables d'environnement essentielles
 
-|Variable|Description|Exemple|
-|---|---|---|
-|`ORACLE_HOME`|Répertoire d'installation du noyau Oracle|`C:\oracle\product\10.2.0\db_1`|
-|`ORACLE_BASE`|Répertoire racine des bases Oracle|`C:\oracle\product`|
-|`ORACLE_SID`|Identifiant de l'instance active|`ORCL`|
-|`NLS_LANG`|Configuration linguistique du système|`FRENCH_FRANCE.WE8MSWIN1252`|
+| Variable      | Description                               | Exemple                         |
+| ------------- | ----------------------------------------- | ------------------------------- |
+| `ORACLE_HOME` | Répertoire d'installation du noyau Oracle | `C:\oracle\product\10.2.0\db_1` |
+| `ORACLE_BASE` | Répertoire racine des bases Oracle        | `C:\oracle\product`             |
+| `ORACLE_SID`  | Identifiant de l'instance active          | `ORCL`                          |
+| `NLS_LANG`    | Configuration linguistique du système     | `FRENCH_FRANCE.WE8MSWIN1252`    |
 
 ### Produits Oracle principaux
 
@@ -112,14 +112,14 @@ SGA
 
 ### Processus d'arrière-plan essentiels
 
-|Processus|Rôle|Criticité|
-|---|---|---|
-|**PMON**|Process Monitor - Nettoie les connexions anormalement terminées|Obligatoire ✓|
-|**SMON**|System Monitor - Récupération d'instance au démarrage|Obligatoire ✓|
-|**LGWR**|Log Writer - Écrit le contenu du Redo Log Buffer vers les fichiers Redo Log|Obligatoire ✓|
-|**DBWR**|Database Writer - Écrit les blocs modifiés vers les fichiers de données|Obligatoire ✓|
-|**CKPT**|Checkpoint - Synchronise les en-têtes de fichiers avec l'état actuel|Obligatoire ✓|
-|**ARCn**|Archiver - Archive les Redo Logs pleins en mode ARCHIVELOG|Optionnel|
+| Processus | Rôle                                                                        | Criticité     |
+| --------- | --------------------------------------------------------------------------- | ------------- |
+| **PMON**  | Process Monitor - Nettoie les connexions anormalement terminées             | Obligatoire ✓ |
+| **SMON**  | System Monitor - Récupéra tion d'instance au démarrage                      | Obligatoire ✓ |
+| **LGWR**  | Log Writer - Écrit le contenu du Redo Log Buffer vers les fichiers Redo Log | Obligatoire ✓ |
+| **DBWR**  | Database Writer - Écrit les blocs modifiés vers les fichiers de données     | Obligatoire ✓ |
+| **CKPT**  | Checkpoint - Synchronise les en-têtes de fichiers avec l'état actuel        | Obligatoire ✓ |
+| **ARCn**  | Archiver - Archive les Redo Logs pleins en mode ARCHIVELOG                  | Optionnel     |
 
 ### Connexion à Oracle
 
@@ -131,6 +131,8 @@ SQL> CONNECT nom_utilisateur/mot_de_passe@nom_service
 ```
 
 #### Connexion avec privilèges administratifs
+
+connect  utilisqteru/motpass@localhost:1521/FREEPDB1
 
 ```sql
 SET ORACLE_SID=Orcl
@@ -709,6 +711,7 @@ AS SELECT matricule, nom, prenom, salaire*12 AS salaire_annuel
 FROM employes
 WHERE num_dept = 10;
 ```
+
 
 #### Modification de table
 
