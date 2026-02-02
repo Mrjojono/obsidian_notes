@@ -144,16 +144,16 @@ serveur.nomBase.propriétaire.objet
 
 ### 1.7 Vues Système Importantes
 
-|Vue Système|Description|
-|---|---|
-|`sys.server_principals`|Liste des connexions serveur|
-|`sys.messages`|Messages et avertissements|
-|`sys.sysdatabases`|Liste des bases de données|
-|`sys.configurations`|Options de configuration|
-|`sys.columns`|Colonnes de tables et vues|
-|`sys.objects`|Objets définis dans la BD courante|
-|`sys.database_principals`|Utilisateurs de BD|
-|`sys.database_files`|Fichiers composant la BD|
+| Vue Système               | Description                        |
+| ------------------------- | ---------------------------------- |
+| `sys.server_principals`   | Liste des connexions serveur       |
+| `sys.messages`            | Messages et avertissements         |
+| `sys.databases`           | Liste des bases de données         |
+| `sys.configurations`      | Options de configuration           |
+| `sys.columns`             | Colonnes de tables et vues         |
+| `sys.objects`             | Objets définis dans la BD courante |
+| `sys.database_principals` | Utilisateurs de BD                 |
+| `sys.database_files`      | Fichiers composant la BD           |
 
 ### 1.8 Procédures Stockées Système
 
