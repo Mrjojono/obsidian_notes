@@ -24,3 +24,6 @@ le choix d'une architecture  nosql adapter a chaque besoin permet d'optimiser le
 une approche multimodel est donc pertinente  pour repondre efficacement   au différent  type de données  et d'usage  
 
 
+
+
+
