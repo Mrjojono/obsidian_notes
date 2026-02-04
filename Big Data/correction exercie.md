@@ -22,3 +22,5 @@ conclusion :
 le choix d'une architecture  nosql adapter a chaque besoin permet d'optimiser les perfomances  , l la scalabilité  et la flexibilité  de la plate-forme qui les uses 
 
 une approche multimodel est donc pertinente  pour repondre efficacement   au différent  type de données  et d'usage  
+
+
