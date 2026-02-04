@@ -412,3 +412,285 @@ Si tu veux, je peux aussi :
     
 
 Dis-moi 👍
+
+
+Parfait. Voici une **PARTIE 2 – Étude comparative (8 points)** prête pour un **devoir/examen**, avec une comparaison claire et un **tableau bien rempli**. Le tout est académique, précis, et facile à noter ✅
+
+---
+
+# PARTIE 2 – ÉTUDE COMPARATIVE (8 points)
+
+---
+
+## Q4. Comparaison des performances des bases NoSQL (4 points)
+
+### 🔹 Redis
+
+- **Latence** : Très faible (quelques millisecondes voire microsecondes)
+    
+- **Scalabilité** : Horizontale limitée, principalement en mémoire
+    
+- **Lecture / écriture** : Extrêmement rapides
+    
+- **Type de requêtes** : Accès clé-valeur simple, pub/sub, structures de données
+    
+
+👉 Idéal pour cache, sessions, messagerie temps réel.
+
+---
+
+### 🔹 MongoDB
+
+- **Latence** : Faible à moyenne
+    
+- **Scalabilité** : Horizontale via sharding
+    
+- **Lecture / écriture** : Bon équilibre entre lecture et écriture
+    
+- **Type de requêtes** : Requêtes sur documents, agrégations, filtres complexes
+    
+
+👉 Adapté aux données semi-structurées et aux applications web.
+
+---
+
+### 🔹 Cassandra
+
+- **Latence** : Faible et stable même sous forte charge
+    
+- **Scalabilité** : Excellente scalabilité horizontale
+    
+- **Lecture / écriture** : Très optimisée pour les écritures massives
+    
+- **Type de requêtes** : Requêtes simples par clé de partition
+    
+
+👉 Parfait pour logs, séries temporelles, données volumineuses.
+
+---
+
+### 🔹 Neo4j
+
+- **Latence** : Faible pour les parcours de graphes
+    
+- **Scalabilité** : Plus limitée horizontalement
+    
+- **Lecture / écriture** : Lecture optimisée, écriture plus coûteuse
+    
+- **Type de requêtes** : Parcours de relations complexes (graph queries)
+    
+
+👉 Idéal pour systèmes de recommandation et réseaux sociaux.
+
+---
+
+## Q5. Tableau comparatif des bases NoSQL (4 points)
+
+|Base|Modèle|Écriture|Lecture|Cas d’usage|
+|---|---|---|---|---|
+|Redis|Clé-valeur|Très rapide|Très rapide|Cache, sessions, messagerie temps réel|
+|MongoDB|Documents|Rapide|Rapide|Profils utilisateurs, catalogues|
+|Cassandra|Colonnes larges|Très rapide|Rapide|Logs, séries temporelles|
+|Neo4j|Graphe|Moyenne|Très rapide|Recommandation, relations complexes|
+
+---
+
+### ✅ Ce que l’enseignant attend ici
+
+- comparaison claire par critères
+    
+- pas de confusion entre modèles
+    
+- bons cas d’usage
+    
+- cohérence avec les contraintes (latence, volume, scalabilité)
+    
+
+Si tu veux, je peux :
+
+- 🔹 te donner une **version ultra synthèse (1 page)**
+    
+- 🔹 te préparer la **PARTIE 3 (choix technologiques DIGI-PLUS)**
+    
+- 🔹 transformer ça en **fiche de révision**
+    
+
+Dis-moi 👍
+
+
+Voici une **réponse complète, académique et directement exploitable pour l’examen**, couvrant **la PARTIE 3 et la PARTIE 4**.  
+Le niveau, le vocabulaire et la structure correspondent parfaitement à un **cas d’étude noté**.
+
+---
+
+# PARTIE 3 – SCÉNARIOS DE CHOIX TECHNOLOGIQUE (10 points)
+
+---
+
+## Q6. Proposition de bases NoSQL par module et justification
+
+### a) Gestion des sessions utilisateurs
+
+**Base recommandée : Redis (clé-valeur)**
+
+**Justification :**
+
+- Accès ultra-rapide en mémoire
+    
+- Très faible latence
+    
+- Gestion native du TTL (expiration des sessions)
+    
+- Forte disponibilité
+    
+
+👉 Idéal pour les sessions temporaires et l’authentification.
+
+---
+
+### b) Catalogue de services
+
+**Base recommandée : MongoDB (orientée documents)**
+
+**Justification :**
+
+- Données semi-structurées et hétérogènes
+    
+- Schéma flexible
+    
+- Requêtes riches et indexation efficace
+    
+- Scalabilité horizontale
+    
+
+👉 Adaptée aux catalogues évolutifs et dynamiques.
+
+---
+
+### c) Messagerie instantanée
+
+**Base recommandée : Redis (clé-valeur / pub-sub)**
+
+**Justification :**
+
+- Latence extrêmement faible
+    
+- Support du mécanisme Pub/Sub
+    
+- Très bonne gestion de la concurrence
+    
+- Parfaite pour le temps réel
+    
+
+👉 Garantit une communication fluide entre utilisateurs.
+
+---
+
+### d) Journaux d’activité (logs)
+
+**Base recommandée : Apache Cassandra (colonnes larges)**
+
+**Justification :**
+
+- Optimisée pour les écritures massives
+    
+- Très haute disponibilité
+    
+- Tolérance aux pannes native
+    
+- Scalabilité horizontale quasi illimitée
+    
+
+👉 Idéale pour le stockage de logs et données volumineuses.
+
+---
+
+### e) Système de recommandation
+
+**Base recommandée : Neo4j (orientée graphes)**
+
+**Justification :**
+
+- Gestion efficace des relations complexes
+    
+- Parcours rapide des graphes
+    
+- Algorithmes de recommandation intégrés
+    
+- Performance supérieure pour les liens utilisateur-service
+    
+
+👉 Parfaite pour recommandations personnalisées.
+
+---
+
+# PARTIE 4 – ANALYSE CRITIQUE (4 points)
+
+---
+
+## Q7. Pourquoi une base NoSQL unique n’est-elle pas suffisante pour cette plateforme ? (2 points)
+
+Une base NoSQL unique ne peut pas répondre efficacement à l’ensemble des besoins de la plateforme DIGI-PLUS car chaque module possède :
+
+- des **types de données différents**,
+    
+- des **charges de travail spécifiques** (lecture, écriture, temps réel),
+    
+- des **contraintes de performance distinctes**.
+    
+
+Aucune base NoSQL ne peut être optimale à la fois pour :
+
+- le temps réel,
+    
+- les écritures massives,
+    
+- les relations complexes,
+    
+- les requêtes analytiques.
+    
+
+Utiliser une seule base entraînerait des compromis excessifs, une baisse de performance et une complexité accrue.
+
+---
+
+## Q8. Expliquer le concept de polyglot persistence et son intérêt en termes de performance (2 points)
+
+La **polyglot persistence** consiste à utiliser **plusieurs technologies de bases de données** au sein d’une même application, chacune étant choisie selon le type de données et les exigences de performance du module concerné.
+
+**Intérêts en termes de performance :**
+
+- Optimisation des temps de réponse
+    
+- Meilleure scalabilité
+    
+- Réduction de la charge inutile sur une seule base
+    
+- Adaptation précise aux besoins fonctionnels
+    
+
+👉 Ce concept permet à DIGI-PLUS d’atteindre ses objectifs de latence, de disponibilité et de montée en charge.
+
+---
+
+### ✅ Bilan global attendu par l’enseignant
+
+- Choix technologiques cohérents
+    
+- Justifications claires
+    
+- Bonne compréhension du CAP
+    
+- Polyglot persistence bien expliquée
+    
+
+Si tu veux, je peux :
+
+- 🔹 te donner une **version très courte pour révision**
+    
+- 🔹 simuler une **correction type enseignant**
+    
+- 🔹 transformer tout le cas en **fiche PDF de révision**
+    
+
+Dis-moi 👌
