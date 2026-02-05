@@ -231,13 +231,20 @@ public class AdminService {
 
 ## Résumé Rapide
 
-|Annotation|Type|Usage Principal|
-|---|---|---|
-|`@Entity`|JPA|Classe = Table BD|
-|`@Data`|Lombok|Getters/Setters automatiques|
-|`@NoArgsConstructor`|Lombok|Constructeur vide|
-|`@RequiredArgsConstructor`|Lombok|Constructeur avec champs final|
-|`@Service`|Spring|Logique métier|
-|`@Repository`|Spring|Accès données|
-|`@RestController`|Spring|API REST|
-|`@Transactional`|Spring|Gestion transactions|
+| Annotation                 | Type   | Usage Principal                |
+| -------------------------- | ------ | ------------------------------ |
+| `@Entity`                  | JPA    | Classe = Table BD              |
+| `@Data`                    | Lombok | Getters/Setters automatiques   |
+| `@NoArgsConstructor`       | Lombok | Constructeur vide              |
+| `@RequiredArgsConstructor` | Lombok | Constructeur avec champs final |
+| `@Service`                 | Spring | Logique métier                 |
+| `@Repository`              | Spring | Accès données                  |
+| `@RestController`          | Spring | API REST                       |
+| `@Transactional`           | Spring | Gestion transactions           |
+|                            |        |                                |
+|                            |        |                                |
+|                            |        |                                |
+|                            |        |                                |
+|                            |        |                                |
+|                            |        |                                |
+|                            |        |                                |
