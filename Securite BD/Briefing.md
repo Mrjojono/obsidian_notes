@@ -205,3 +205,64 @@ _Information non présente dans les sources :_ En milieu professionnel, on disti
 ### 5. Relation entre menace, risque et vulnérabilité (0,5 pt)
 
 La relation peut s'établir ainsi : une **menace** (danger potentiel ou acteur malveillant) cherche à exploiter une **vulnérabilité** (faiblesse ou faille de configuration du système) pour engendrer un **risque**. Le risque est alors mesuré par la combinaison de la **probabilité** que la menace réussisse et de l'**impact** (gravité des dommages) qu'elle causerait sur l'organisation.
+
+
+
+
+
+Voici les instructions SQL correspondant aux actions demandées pour la gestion du contrôle d'accès de votre base de données universitaire, en s'appuyant sur les principes de privilèges et de vues décrits dans les sources.
+
+### 1. Accès en lecture pour l'utilisateur 201
+
+Pour accorder la permission de lire (consulter) les tables, on utilise le privilège **SELECT**.
+
+```
+GRANT SELECT ON Student TO '201';
+GRANT SELECT ON Class TO '201';
+```
+
+### 2. Création d'une vue sécurisée et attribution de privilèges
+
+Conformément aux bonnes pratiques de masquage de données sensibles (comme les notes), nous créons une vue excluant l'attribut `grade`. L'utilisateur reçoit ensuite les droits de lecture et de mise à jour sur cette vue.
+
+```
+-- Création de la vue sans l'attribut grade
+CREATE VIEW Enroll_Public AS
+SELECT stuId, classNumber
+FROM Enroll;
+
+-- Attribution des privilèges sur la vue
+GRANT SELECT, UPDATE ON Enroll_Public TO '201';
+```
+
+### 3. Gestion par rôle pour le bureau du doyen
+
+L'utilisation de **rôles** permet de simplifier l'administration en regroupant des privilèges pour plusieurs utilisateurs.
+
+```
+-- Création du rôle
+CREATE ROLE BureauDoyen;
+
+-- Attribution des privilèges de lecture au rôle
+GRANT SELECT ON Student TO BureauDoyen;
+GRANT SELECT ON Class TO BureauDoyen;
+GRANT SELECT ON Enroll_Public TO BureauDoyen;
+
+-- Assignation du rôle aux utilisateurs concernés
+-- Note : La syntaxe peut varier (GRANT role TO user ou ALTER ROLE ADD MEMBER)
+GRANT BureauDoyen TO '202', '203', '204', '205';
+```
+
+### 4. Privilèges de modification et droit de délégation (Doyen adjoint)
+
+Pour permettre à l'utilisateur 206 de modifier les tables, nous accordons les droits **INSERT, UPDATE et DELETE**. L'option **WITH GRANT OPTION** est utilisée spécifiquement pour la table `Class` afin de lui permettre de déléguer ses droits à autrui.
+
+```
+-- Privilèges sur Faculty (sans droit de délégation)
+GRANT SELECT, INSERT, UPDATE, DELETE ON Faculty TO '206';
+
+-- Privilèges sur Class avec droit de transmettre les permissions (WITH GRANT OPTION)
+GRANT SELECT, INSERT, UPDATE, DELETE ON Class TO '206' WITH GRANT OPTION;
+```
+
+**Note importante :** Les syntaxes SQL peuvent légèrement varier selon le SGBDR utilisé (MySQL, PostgreSQL ou SQL Server), notamment pour la déclaration des utilisateurs et des rôles. Les commandes ci-dessus suivent les standards SQL mentionnés dans les sources.
