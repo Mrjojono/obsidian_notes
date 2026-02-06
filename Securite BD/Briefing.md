@@ -151,3 +151,57 @@ Un _Key Management System_ centralise la génération, le stockage, le remplacem
 ## Conclusion
 
 Une administration sécurisée repose sur un engagement continu. La sécurité n'est pas une destination mais un processus itératif combinant des mesures techniques (chiffrement, audit), organisationnelles (principes d'accès) et humaines (formation des équipes). Un SGBD, qu'il soit MySQL, PostgreSQL ou MongoDB, correctement configuré et surveillé, demeure une solution fiable pour les données critiques.
+
+
+
+
+
+
+
+
+
+Voici les réponses aux questions de votre partie théorique, basées sur les sources fournies :
+
+### 1. Importance de la sécurité d'une base de données (04 points)
+
+La sécurité des bases de données est vitale pour une entreprise pour les raisons suivantes :
+
+- **Protection des informations sensibles :** Elle permet de mettre à l'abri les données confidentielles telles que les informations d'identification personnelle (PII), les données financières et la propriété intellectuelle contre le vol ou l'accès non autorisé.
+- **Garantie de l'intégrité et de la disponibilité :** Elle assure que les données ne sont pas modifiées de manière frauduleuse ou accidentelle et qu'elles restent accessibles aux utilisateurs légitimes pour assurer la continuité des activités.
+- **Conformité réglementaire :** Les entreprises doivent respecter des cadres légaux stricts, comme le **RGPD**, sous peine d'amendes substantielles et de poursuites judiciaires en cas de violation de données.
+- **Préservation de la réputation :** Une faille de sécurité peut entraîner une perte de confiance durable de la part des clients, des partenaires et des actionnaires, nuisant gravement à l'image de marque.
+
+### 2. Moyens de garantir la sécurité (03 définitions au choix) (1,5 pt)
+
+- **Authentification :** Ce mécanisme consiste à **vérifier l'identité** d'un utilisateur, d'une application ou d'une machine avant de lui accorder l'accès au système. Elle peut s'appuyer sur des mots de passe, des certificats ou l'authentification multi-facteurs.
+- **Autorisation :** Une fois l'identité vérifiée, l'autorisation définit précisément les **droits et privilèges** accordés (lecture, écriture, suppression) sur des ressources spécifiques, souvent selon le principe du moindre privilège.
+- **Audit et Journalisation :** Il s'agit du processus d'enregistrement automatique et d'examen des événements survenus sur la base (connexions, requêtes, modifications). Cela permet d'assurer la **traçabilité** des actions et de détecter des comportements suspects.
+
+### 3. Types et objectifs de l'injection SQL (1,5 pt)
+
+**Types d'injection SQL :** Les sources identifient trois catégories principales :
+
+1. **En bande (In-band) :** La forme la plus simple où l'attaquant utilise le même canal pour lancer l'attaque et récupérer les résultats (ex: basées sur les **erreurs** ou sur l'opération **UNION**).
+2. **Inférentielle (Blind) :** Plus sournoise, elle consiste à observer le comportement de l'application (réponses **booléennes** ou basées sur le **temps/délai**) pour déduire des informations.
+3. **Hors bande (Out-of-band) :** L'attaquant utilise des canaux auxiliaires comme des requêtes DNS ou HTTP pour extraire les données. _Note : Les sources mentionnent également l'injection SQL **stockée**, où le code malveillant est enregistré pour être exécuté plus tard._
+
+**Objectifs d'une injection SQL :**
+
+- Visualiser ou voler des données privées (mots de passe, cartes de crédit).
+- Contourner les écrans d'authentification.
+- Modifier ou supprimer des données dans la base.
+- Prendre le contrôle total du serveur de base de données.
+
+### 4. Types de sauvegarde de base de données (1,5 pt)
+
+La sauvegarde est le dernier rempart contre la perte totale de données. Les sources mentionnent :
+
+- **Sauvegardes régulières et automatisées :** Pour assurer un maintien de versions historiques (journalières, hebdomadaires, mensuelles) selon les besoins métier.
+- **Sauvegardes hors site ou isolées :** Stockées dans un lieu physique différent ou un cloud sécurisé pour prévenir les sinistres locaux, souvent selon la règle **3-2-1** (3 copies, 2 supports, 1 hors site).
+- **Sauvegardes immuables :** Protégées en écriture pour empêcher leur chiffrement ou destruction lors d'une attaque par ransomware.
+
+_Information non présente dans les sources :_ En milieu professionnel, on distingue classiquement la sauvegarde **complète** (tout le système), **incrémentale** (données modifiées depuis la dernière sauvegarde) et **différentielle** (données modifiées depuis la dernière sauvegarde complète).
+
+### 5. Relation entre menace, risque et vulnérabilité (0,5 pt)
+
+La relation peut s'établir ainsi : une **menace** (danger potentiel ou acteur malveillant) cherche à exploiter une **vulnérabilité** (faiblesse ou faille de configuration du système) pour engendrer un **risque**. Le risque est alors mesuré par la combinaison de la **probabilité** que la menace réussisse et de l'**impact** (gravité des dommages) qu'elle causerait sur l'organisation.
