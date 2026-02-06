@@ -266,3 +266,76 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON Class TO '206' WITH GRANT OPTION;
 ```
 
 **Note importante :** Les syntaxes SQL peuvent légèrement varier selon le SGBDR utilisé (MySQL, PostgreSQL ou SQL Server), notamment pour la déclaration des utilisateurs et des rôles. Les commandes ci-dessus suivent les standards SQL mentionnés dans les sources.
+
+
+
+
+Voici les instructions SQL et les représentations demandées pour la suite de la gestion de votre base de données universitaire :
+
+### 5. Délégation de privilège par l'utilisateur 206
+
+Puisque l'utilisateur 206 a reçu le privilège sur la table `Class` avec l'option de délégation (`WITH GRANT OPTION`) lors de l'étape précédente, il peut accorder ce droit à l'utilisateur 300.
+
+```
+GRANT SELECT ON Class TO '300';
+```
+
+### 6. Vue des étudiants en dernière année (LMD)
+
+On suppose ici qu'en système LMD, la dernière année de Licence correspond à un seuil de crédits spécifique (par exemple, 120 ou 180 crédits cumulés). La vue filtre les lignes de la table `Student`.
+
+```
+CREATE VIEW FinalYearStudents AS
+SELECT *
+FROM Student
+WHERE credits >= 120; -- Seuil indicatif pour la dernière année
+```
+
+### 7. Vue partielle de la table Faculty
+
+Pour créer une vue partielle, nous ne sélectionnons que certaines colonnes afin de masquer les informations moins pertinentes ou sensibles.
+
+```
+CREATE VIEW Faculty_Public AS
+SELECT name, department
+FROM Faculty;
+```
+
+### 8. Autorisation pour l'utilisateur 125
+
+Nous accordons le privilège de lecture (`SELECT`) sur les deux nouvelles vues à l'utilisateur 125.
+
+```
+GRANT SELECT ON FinalYearStudents TO '125';
+GRANT SELECT ON Faculty_Public TO '125';
+```
+
+---
+
+### 9. Représentations de l'état des droits
+
+#### A. Matrice d'accès résultante
+
+Cette matrice récapitule les droits cumulés accordés dans cet exercice (incluant les étapes précédentes).
+
+|Utilisateur / Rôle|Student|Faculty|Class|Enroll|Enroll_Public|FinalYearS.|Faculty_Pub.|
+|:--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|**201**|SELECT|-|SELECT|-|SELECT, UPDATE|-|-|
+|**BureauDoyen (202-205)**|SELECT|-|SELECT|-|SELECT|-|-|
+|**206**|-|S, I, U, D|S, I, U, D (GO)|-|-|-|-|
+|**300**|-|-|SELECT|-|-|-|-|
+|**125**|-|-|-|-|-|SELECT|SELECT|
+
+_Légende : S (Select), I (Insert), U (Update), D (Delete), GO (Grant Option)._
+
+#### B. Graphe d'attribution des droits (Lecture seule)
+
+Le graphe illustre la propagation des droits de lecture du DBA vers les utilisateurs, et la délégation de 206 vers 300.
+
+1. **DBA** $\xrightarrow{SELECT}$ **201** (Student, Class)
+2. **DBA** $\xrightarrow{SELECT}$ **BureauDoyen** (Student, Class, Enroll_Public)
+3. **DBA** $\xrightarrow{SELECT}$ **206** (Faculty, Class)
+4. **206** $\xrightarrow{SELECT}$ **300** (Class) _-- (Délégation de privilège)_
+5. **DBA** $\xrightarrow{SELECT}$ **125** (FinalYearStudents, Faculty_Public)
+
+**Note :** Le principe du **moindre privilège** a été appliqué ici en utilisant des vues pour restreindre l'accès aux colonnes (Faculty) ou aux lignes (Student, Enroll) spécifiques.
