@@ -168,7 +168,7 @@ La sécurité des bases de données est vitale pour une entreprise pour les rais
 
 - **Protection des informations sensibles :** Elle permet de mettre à l'abri les données confidentielles telles que les informations d'identification personnelle (PII), les données financières et la propriété intellectuelle contre le vol ou l'accès non autorisé.
 - **Garantie de l'intégrité et de la disponibilité :** Elle assure que les données ne sont pas modifiées de manière frauduleuse ou accidentelle et qu'elles restent accessibles aux utilisateurs légitimes pour assurer la continuité des activités.
-- **Conformité réglementaire :** Les entreprises doivent respecter des cadres légaux stricts, comme le **RGPD**, sous peine d'amendes substantielles et de poursuites judiciaires en cas de violation de données.
+- **Conformité réglementaire :** Les entreprises doivent respecter des cadres légaux stricts, comme le **RGPD**, sous peine d'amendes substantielles et de poursuites judiciaires en cas de violation de données. RGBD (reglement general sur la protection des données )
 - **Préservation de la réputation :** Une faille de sécurité peut entraîner une perte de confiance durable de la part des clients, des partenaires et des actionnaires, nuisant gravement à l'image de marque.
 
 ### 2. Moyens de garantir la sécurité (03 définitions au choix) (1,5 pt)
