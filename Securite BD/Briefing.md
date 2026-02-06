@@ -339,3 +339,38 @@ Le graphe illustre la propagation des droits de lecture du DBA vers les utilisat
 5. **DBA** $\xrightarrow{SELECT}$ **125** (FinalYearStudents, Faculty_Public)
 
 **Note :** Le principe du **moindre privilège** a été appliqué ici en utilisant des vues pour restreindre l'accès aux colonnes (Faculty) ou aux lignes (Student, Enroll) spécifiques.
+
+
+
+
+Voici les réponses détaillées concernant les mécanismes et l'exploitation des injections SQL, basées sur les sources fournies :
+
+### 1. Découverte d'informations sur la base de données
+
+L'injection SQL peut être utilisée pour obtenir des informations structurelles de plusieurs manières :
+
+- **Injection basée sur les erreurs :** En insérant des caractères spéciaux (comme une apostrophe), l'attaquant provoque des messages d'erreur détaillés du SGBD. Ces erreurs peuvent révéler **le nom des tables, la structure des champs** ou la logique des requêtes.
+- **Attaque par UNION :** L'attaquant utilise l'instruction `UNION SELECT` pour combiner la requête légitime avec une requête malveillante. Cela permet d'extraire des données de tables dont il a découvert le nom (comme les adresses e-mail ou les identifiants) et de les afficher dans les résultats de l'application.
+- **Injection aveugle (Blind SQLi) :** Si aucune erreur ne s'affiche, l'attaquant pose des questions de type "vrai/faux" (booléen) ou utilise des délais d'attente (`WAITFOR DELAY`) pour déduire les noms des tables et des champs caractère par caractère en observant la réaction du serveur.
+
+### 2. Scénario sur la table Student
+
+**a. Insertion d'un nouvel étudiant (1 pt)** Pour insérer des données, un attaquant utilise généralement l'**injection par lots** (batch injection) en utilisant le point-virgule (`;`) pour terminer la requête prévue et en ajouter une nouvelle.
+
+- **Exemple de charge utile :** Si le champ de saisie est `lastName`, l'attaquant pourrait saisir : `'nom'; INSERT INTO Student (studentID, email, userID, password, firstName, lastName) VALUES (999, 'hacker@mail.com', 'hacker_user', 'hacked_pass', 'John', 'Doe'); --`
+- **Paramètres userID et password :** Pour que la requête initiale (souvent un `SELECT`) n'échoue pas et permette l'exécution de la suite, ou pour contourner une vérification, l'attaquant peut utiliser la condition **`OR '1'='1'`**.
+
+**b. Causes d'échec d'une telle attaque (1 pt)** Une tentative d'insertion peut échouer pour plusieurs raisons de sécurité :
+
+- **Droits insuffisants :** L'application peut être configurée selon le **principe du moindre privilège**, n'ayant que des droits de lecture (`SELECT`) et non d'écriture (`INSERT`) sur la base.
+- **Requêtes paramétrées :** Si l'application utilise des **requêtes préparées**, les entrées utilisateur sont traitées comme des données simples et non comme du code exécutable, rendant l'injection impossible.
+- **Configuration du SGBD :** Certaines bases de données ou certains pilotes désactivent l'exécution de requêtes multiples par lots (séparées par des `;`).
+- **Validation et WAF :** Un pare-feu d'application Web (WAF) ou une validation stricte côté serveur peut détecter et bloquer les mots-clés comme `INSERT` ou `DROP`.
+
+**c. Modification de l'adresse e-mail (1 pt)** Si l'attaquant connaît l'e-mail cible, il utilise une commande `UPDATE` via une injection :
+
+- **Saisie type :** `''; UPDATE Student SET email = 'mon_email@attaquant.com' WHERE email = 'etudiant_victime@univ.tg'; --` Cette commande remplace l'adresse légitime par celle de l'attaquant dans l'enregistrement correspondant.
+
+**d. Obtention du mot de passe après modification de l'e-mail (1 pt)** Une fois l'adresse e-mail modifiée dans la base de données, l'attaquant peut obtenir le mot de passe en utilisant la fonctionnalité **"Mot de passe oublié"** du site web.
+
+- Puisque l'adresse e-mail associée au compte est maintenant celle de l'attaquant, le système enverra le **lien de réinitialisation** ou le nouveau mot de passe directement à l'adresse de l'attaquant. Cela lui permet de prendre le contrôle total du compte sans même avoir à déchiffrer le mot de passe original.
