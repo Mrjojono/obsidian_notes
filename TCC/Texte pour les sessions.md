@@ -77,7 +77,6 @@ mais il existe une astuce 👀😉
 Découvrez-le sur : **render.com**  
 Abonnez-vous pour ne rien rater 😊 et n'oublier pas  inscrivez-vous pour notre prochaine  session ce vendredi :  [https://lnkd.in/dJKtBsaE](https://lnkd.in/dJKtBsaE)
 
-#Render  #OutilsDigitaux  #Developpeurs #TechTools  #Backend  #Cloud  #DevLife  #LinkedInTech
 
 
 

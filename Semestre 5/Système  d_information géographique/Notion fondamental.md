@@ -43,7 +43,7 @@ les théodolite ( utiliser souvent dans le génie civile):
     instrument de géodésie complète  d'un instrument d'optique , mesurant des  angles dans les deux plans horizontaux  et verticaux afin de déterminer une direction. 
 
 - [[Logiciels]]
-- [[Système  d_information géographique/Données]]
+- [[Semestre 5/Système  d_information géographique/Données]]
 - [[Utilisateurs]] 
 - [[Méthodes ( Processus)]] 
 
