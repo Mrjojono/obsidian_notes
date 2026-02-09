@@ -12,5 +12,9 @@ Les functions économiques  d'une entreprise:
 
 Acteurs  d'une entreprise ? Etat , Client , fournisseur , actionnaire 
 
+Définir l'entreprise et son environnement, 
+
+
+
 
 
