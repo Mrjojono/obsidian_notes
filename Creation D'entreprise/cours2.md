@@ -5,7 +5,12 @@ est une organisation qui combine des ressources (humaines, matérielles, financi
 
 Qu'appelle  t'on une entreprise et c'est quoi ces functions ? 
 
+Les functions économiques  d'une entreprise: 
+- la creation de richesse  
+- La repartition des richesses 
+- innovation 
 
-les trois functions d'une entreprise  
+Acteurs  d'une entreprise ? Etat , Client , fournisseur , actionnaire 
+
 
 
