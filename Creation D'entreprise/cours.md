@@ -14,9 +14,9 @@
 
 L'entreprise remplit trois fonctions économiques essentielles :
 
-**Création de richesse** : Production de biens et services destinés à être vendus sur le marché à un prix calculé pour couvrir leur coût de production.
+**Création de richesse**  : Production de biens et services destinés à être vendus sur le marché à un prix calculé pour couvrir leur coût de production.
 
-**Répartition des richesses** : Partage de la valeur ajoutée (VA) qui représente la valeur réellement produite par l'entreprise. La formule de calcul est VA = CA - CI, où CA représente le chiffre d'affaires (valeur de la production vendue) et CI les consommations intermédiaires (produits achetés pour être transformés). Attention : la VA n'est pas le bénéfice.
+**Répartition des richesses** : Partage de la valeur ajoutée (VA) qui représente la valeur réellement produite par l'entreprise. La formule de calcul est ==VA = CA - CI==, où CA représente le chiffre d'affaires (valeur de la production vendue) et CI les consommations intermédiaires (produits achetés pour être transformés). Attention : la VA n'est pas le bénéfice.
 
 **Innovation** : Caractéristique de l'entrepreneur qui introduit le changement dans la vie de l'entreprise en dépassant la routine. L'innovation consiste à passer de l'invention à la réalisation concrète. Elle comporte des risques (possibilité de faillite) mais offre l'espoir d'un succès spectaculaire (le profit). L'entrepreneur consacre son énergie et risque son argent pour produire et vendre différemment.
 
