@@ -18,4 +18,6 @@ Définir l'entreprise et son environnement,
 En fonction du statut d'une entreprise, Combien d'entrepsie distingue t'on  ??
 
 
+struture orgqniser pour produire des biens et services ,
+
 
