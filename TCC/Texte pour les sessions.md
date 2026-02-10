@@ -136,7 +136,12 @@ Docker est aussi parfait pour le travail en équipe. Tu peux envoyer ton projet 
 
 Et ce qui est encore plus fort, c’est que Docker est **le pont naturel entre le développement et le déploiement**. Tu développes dans Docker en local, puis tu déploies… toujours avec Docker. Que ce soit sur Render, Railway, un VPS ou un cloud provider, le comportement de ton application reste le même. Tu réduis drastiquement les surprises en production, et ça, c’est un luxe.
 
+
 Docker ne fait pas tout à ta place, mais il te donne une base solide. Tu contrôles ton environnement, tu comprends ce qui tourne, tu évites les dépendances fantômes et les installations hasardeuses. Une fois que tu y goûtes, revenir en arrière devient très difficile 😄
+
+
+Il existe un ecosyteme complet pour docker par exemple Docker Hub, c’est une **plateforme en ligne** qui permet de stocker et partager des **images Docker**.  
+On y trouve des images prêtes à l’emploi pour Node.js, PHP, Python, des bases de données et bien plus, ce qui permet de démarrer un projet rapidement sans tout configurer soi-même
 
 Si tu veux, au prochain message, je peux t’aider à  
 – rédiger une **présentation Docker encore plus punchline** version post LinkedIn ou article  
