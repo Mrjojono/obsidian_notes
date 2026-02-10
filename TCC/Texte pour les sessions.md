@@ -124,12 +124,13 @@ Ne manquez pas cette session, car vous risqueriez de le regretter !
 
 ---
 
- Est ce que il vous ai déjà  arrivée  d'avoir des soucis avec xamp , des soucis de version avec nodejs  ou pire python qui ne marchais plus ?
+Est-ce qu’il vous est déjà arrivé d’avoir des soucis avec **XAMPP**, des conflits de versions avec **Node.js**, ou pire Python qui refuse soudainement de fonctionner** sans raison apparente ?
+
 Docker, c’est un outil qui permet de créer des environnements de développement isolés, reproductibles et portables. En clair, ton application vit dans une petite boîte bien fermée, avec tout ce dont elle a besoin pour fonctionner, peu importe la machine sur laquelle elle tourne. Plus de “ça marche chez moi mais pas chez toi”. Avec Docker, si ça marche une fois, ça marche partout 
 
 Docker ne remplace pas ton code, il **l’entoure**. Il prend ton application, ton langage, tes dépendances, ta base de données, parfois même ton serveur web, et il les emballe dans un **conteneur**. Ce conteneur peut ensuite être lancé sur ton PC, sur celui d’un ami, sur un serveur ou dans le cloud, sans rien réinstaller. Une fois Docker installé, tu n’as plus besoin d’installer Node.js, PHP, Python, MySQL ou PostgreSQL directement sur ta machine. Tout se passe dans les conteneurs, ta machine reste propre, zen, intacte 😌
 
-Utiliser Docker comme **outil de développement**, c’est un vrai changement de mentalité. Tu ne développes plus “sur ta machine”, tu développes **dans un environnement contrôlé**. Par exemple, tu veux bosser sur un projet Node.js avec une base PostgreSQL. Au lieu d’installer Node, PostgreSQL, configurer les versions, gérer les conflits, tu écris juste un fichier Docker. Tu lances une commande, et boum 💥 ton backend, ta base de données et ton environnement sont prêts, connectés entre eux, sans prise de tête.
+Par exemple, tu veux bosser sur un projet Node.js avec une base PostgreSQL. Au lieu d’installer Node, PostgreSQL, configurer les versions, gérer les conflits, tu écris juste un fichier Docker. Tu lances une commande, et boum  ton backend, ta base de données et ton environnement sont prêts, connectés entre eux, sans prise de tête.
 
 Docker est aussi parfait pour le travail en équipe. Tu peux envoyer ton projet à quelqu’un avec juste le code et les fichiers Docker. La personne clone le dépôt, lance une commande, et retrouve **exactement le même environnement que toi**, mêmes versions, mêmes ports, mêmes dépendances. Pas de débat, pas de magie noire, juste de la cohérence 🧠✨
 
