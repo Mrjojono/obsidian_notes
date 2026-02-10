@@ -53,9 +53,6 @@ Côté trafic, Render inclut 100 Go de bande passante sortante par mois, largeme
 À noter que les services gratuits sont **mis en veille après environ 15 minutes d’inactivité**, ce qui peut entraîner un léger temps de redémarrage lors de la prochaine requête mais j'ai une solution pour ca 😉😊😁 😶‍🌫️je ne peut  pas vous devoiler le secret ici mais si vous réagissez  beaucoup je vous le confierait .
 
 
-
-
-
 ### OUTIL DE LA SEMAINE : Render
 
 Connaissez-vous Render ? 🤔  
