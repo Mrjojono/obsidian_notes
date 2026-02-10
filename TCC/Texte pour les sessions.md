@@ -124,7 +124,7 @@ Ne manquez pas cette session, car vous risqueriez de le regretter !
 
 ---
 
-Est-ce qu’il vous est déjà arrivé d’avoir des soucis avec **XAMPP**, des conflits de versions avec **Node.js**, ou pire Python qui refuse soudainement de fonctionner** sans raison apparente ?
+Est-ce qu’il vous est déjà arrivé d’avoir des soucis avec XAMPP, des conflits de versions avec **Node.js**, ou pire Python qui refuse soudainement de fonctionner sans raison apparente ?
 
 Docker, c’est un outil qui permet de créer des environnements de développement isolés, reproductibles et portables. En clair, ton application vit dans une petite boîte bien fermée, avec tout ce dont elle a besoin pour fonctionner, peu importe la machine sur laquelle elle tourne. Plus de “ça marche chez moi mais pas chez toi”. Avec Docker, si ça marche une fois, ça marche partout 
 
