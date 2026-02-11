@@ -149,3 +149,38 @@ Si tu veux, au prochain message, je peux t’aider à
 – ou t’aider à structurer le texte pour qu’il colle parfaitement à tes captures d’écran
 
 Dis-moi 😏
+
+
+
+
+---
+
+##  OUTIL DE LA SEMAINE : Docker
+
+Connaissez-vous Docker ? 🤔
+
+C’est l’outil qui met fin au célèbre :  
+" Chez moi ça marche" 
+
+Docker permet de créer des environnements **isolés, reproductibles et portables**.  
+Ton application vit dans une boîte  avec tout ce dont elle a besoin.  
+Peu importe la machine, ça fonctionne.
+
+### À quoi ça sert ?
+
+- Éviter les conflits entre PHP, Node.js, Python
+- Lancer des bases de données en quelques secondes
+- Travailler en équipe avec le même environnement
+    
+Si ça marche une fois, ça marche partout.
+### Je vous le conseil
+
+Installe Docker Desktop.  
+Sous Windows, pense à installer WSL (Docker fonctionne mieux avec Linux).
+
+Avec Docker Hub, tu trouves des images prêtes à l’emploi :  
+Node.js, PHP, MySQL, PostgreSQL… tout est déjà préparé.
+
+Si vous voulez une machine propre, sans bazar et sans conflits,  
+Docker est votre meilleur allié 
+Découvrez-le sur : docker.com
