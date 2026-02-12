@@ -902,6 +902,4 @@ Les marchés financiers ne sont pas un moyen de s'enrichir rapidement. Ce sont d
 
 Le compte démo est une ressource précieuse. L'utiliser jusqu'à être régulièrement profitable avant de mettre de l'argent réel.
 
----
 
-_Ce guide est à but éducatif. Les marchés financiers comportent des risques de perte en capital. Ne jamais investir plus que ce que l'on peut se permettre de perdre._
